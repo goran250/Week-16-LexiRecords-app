@@ -1,0 +1,30 @@
+[
+  {
+    "id": "ae564e5d-d25d-489f-b287-dc21ae7756cc",
+    "email": "goran.rosenberg@tomelilla.nu",
+    "password": "$2a$10$IEaqLjcMEgbmwBbs.0duJOLMzkNZQu9OvuXOuO5L2lybntrzT2svS",
+    "role": "admin",
+    "createdAt": "2026-04-19T14:55:25.315Z"
+  },
+  {
+    "id": "3057f975-8c5d-4a13-a671-e59059bb7f9f",
+    "email": "goran.ros@gmail.com",
+    "password": "$2a$10$PVoelKs61PldmegwlArKWuwkh7si/sTSFQ4IpsMMz4uvwBG8pmg6m",
+    "role": "customer",
+    "createdAt": "2026-04-19T15:03:08.880Z"
+  },
+  {
+    "id": "331e7f7b-35b6-4540-97ad-1c9966070891",
+    "email": "goran.rosenberg@gmail.com",
+    "password": "$2a$10$F7dXKJaWIK3dW7QBmteKV.DM/sJbR1uopzMwwOneTHWRf4rCXtOg6",
+    "role": "customer",
+    "createdAt": "2026-04-19T23:05:41.619Z"
+  },
+  {
+    "id": "050d7e55-cda8-4d91-a400-5477ba06f9ba",
+    "email": "goran.rosenberg1@gmail.com",
+    "password": "$2a$10$DczU5LI6TkFMJS4F0fnJgOumFufwJAqlkzk95wx.H76R1QBZASo..",
+    "role": "customer",
+    "createdAt": "2026-04-19T23:28:00.572Z"
+  }
+]

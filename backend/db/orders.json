@@ -1,0 +1,25 @@
+[
+  {
+    "id": "088f364e-5f04-42f3-9b90-d06007446b4d",
+    "userId": "ae564e5d-d25d-489f-b287-dc21ae7756cc",
+    "items": [
+      {
+        "id": "b61351bf-3b14-4f11-9ecc-75109fd31d45",
+        "title": "David Bowie - Space Oddity",
+        "category": "Begagnade skivor",
+        "subcategory": "Singlar",
+        "price": 79,
+        "image": "https://via.placeholder.com/200x200?text=Space+Oddity",
+        "description": "Begagnad singel från 1969",
+        "stock": 5,
+        "quantity": 1
+      }
+    ],
+    "totalPrice": 79,
+    "status": "delivered",
+    "archived": false,
+    "createdAt": "2026-04-19T14:59:32.552Z",
+    "updatedAt": "2026-04-19T20:05:52.268Z"
+  }
+ 
+]
