@@ -39,8 +39,11 @@ export const apiService = {
   // Auth
   login: (email, password) => axios.post(`${API_BASE}/auth/login`, { email, password }),
   
-  registerUser: (fullname, email, password, address) => axios.post(`${API_BASE}/auth/registerUser`, { fullname, email, password, address }),
+  register: (fullname, email, password, street, zipCode, city, country) =>
+     axios.post(`${API_BASE}/auth/register`, {fullname, email, password, street, zipCode, city, country}),
+  
+  
 
   // Admin
-  createAdmin: (email, password) => axios.post(`${API_BASE}/admin/users`, { email, password, role: 'admin' })
+  registerAdmin: (fullname, email, password) => axios.post(`${API_BASE}/auth/registerAdmin`, { fullname, email, password, role: 'admin' })
 };

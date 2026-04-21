@@ -104,7 +104,7 @@ const writeJSON = (filePath, data) => {
 // Routes
 // AUTH ROUTES
 app.post('/api/auth/register', (req, res) => {
-  const { email, password } = req.body;
+  const { fullname, email, password, street, zipCode, city, country } = req.body;
 
   if (!email || !password) {
     return res.status(400).json({ error: 'Email och lösenord krävs' });
@@ -119,8 +119,13 @@ app.post('/api/auth/register', (req, res) => {
 
   const newUser = {
     id: uuidv4(),
+    fullname, 
     email,
     password: bcrypt.hashSync(password, 10),
+    street, 
+    zipCode, 
+    city, 
+    country,
     role: 'customer',
     createdAt: new Date().toISOString()
   };
@@ -128,10 +133,18 @@ app.post('/api/auth/register', (req, res) => {
   users.push(newUser);
   writeJSON(usersFile, users);
 
+  console.log("server.js");
+
   res.status(201).json({
     id: newUser.id,
+    fullname: newUser.fullname, 
     email: newUser.email,
-    role: newUser.role
+    street: newUser.street, 
+    zipCode: newUser.zipCode, 
+    city: newUser.city, 
+    country: newUser.country,
+    role: newUser.role,
+    createdAt: newUser.createdAt
   });
 });
 
@@ -154,6 +167,38 @@ app.post('/api/auth/login', (req, res) => {
     email: user.email,
     role: user.role
   });
+});
+
+// ADMIN ROUTES
+app.post('/api/auth/registerAdmin', (req, res) => {
+  const { fullname, email, password, role } = req.body;
+
+  console.log("server.js");
+    
+  if (!email || !password || role !== 'admin') {
+    return res.status(400).json({ error: 'Endast administratörer kan skapas via denna endpoint' });
+  }
+
+  const users = readJSON(usersFile);
+  const userExists = users.some(u => u.email === email);
+
+  if (userExists) {
+    return res.status(400).json({ error: 'Epostadressen är redan registrerad' });
+  }
+
+  const newAdmin = {
+    id: uuidv4(),
+    fullname,
+    email,
+    password: bcrypt.hashSync(password, 10),
+    role: 'admin',
+    createdAt: new Date().toISOString()
+  };
+
+  users.push(newAdmin);
+  writeJSON(usersFile, users);
+
+
 });
 
 // PRODUCTS ROUTES
@@ -257,6 +302,7 @@ app.post('/api/orders', (req, res) => {
   const newOrder = {
     id: uuidv4(),
     userId,
+    userName,
     items,
     totalPrice: parseFloat(totalPrice),
     status: 'pending',
@@ -330,39 +376,6 @@ app.delete('/api/orders/:id', (req, res) => {
   writeJSON(ordersFile, orders);
 
   res.json(deletedOrder[0]);
-});
-
-// ADMIN ROUTES
-app.post('/api/admin/users', (req, res) => {
-  const { email, password, role } = req.body;
-
-  if (!email || !password || role !== 'admin') {
-    return res.status(400).json({ error: 'Endast administratörer kan skapas via denna endpoint' });
-  }
-
-  const users = readJSON(usersFile);
-  const userExists = users.some(u => u.email === email);
-
-  if (userExists) {
-    return res.status(400).json({ error: 'Epostadressen är redan registrerad' });
-  }
-
-  const newAdmin = {
-    id: uuidv4(),
-    email,
-    password: bcrypt.hashSync(password, 10),
-    role: 'admin',
-    createdAt: new Date().toISOString()
-  };
-
-  users.push(newAdmin);
-  writeJSON(usersFile, users);
-
-  res.status(201).json({
-    id: newAdmin.id,
-    email: newAdmin.email,
-    role: newAdmin.role
-  });
 });
 
 // Start server

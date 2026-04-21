@@ -1,42 +1,129 @@
 [
   {
     "id": "a240cc12-094f-4f45-9fc1-de40e41b6ddc",
-    "title": "The Beatles - Abbey Road",
+    "artist": "The Beatles",
+    "title": "Abbey Road",
     "category": "Nya skivor",
     "subcategory": "LP-skivor",
     "price": 299,
-    "image": "https://via.placeholder.com/200x200?text=Abbey+Road",
+    "image": "./src/images/beatles-abbey-road-LP.jpg",
     "description": "Klassisk album från 1969",
     "stock": 10
   },
   {
     "id": "df7e1ba2-1f11-4f7a-b0b6-51daf6b7297d",
-    "title": "Pink Floyd - The Dark Side of the Moon",
+    "artist": "Pink Floyd",
+    "title": "The dark side of the moon",
     "category": "Nya skivor",
     "subcategory": "LP-skivor",
     "price": 349,
-    "image": "https://via.placeholder.com/200x200?text=Dark+Side",
+    "image": "./src/images/pink-floyd-dark-side-of-the-moon-LP.jpg",
     "description": "Ikoniskt album från 1973",
     "stock": 15
   },
   {
     "id": "9a51d483-24eb-4aaa-92a4-c658e0b79c0e",
-    "title": "Queen - Bohemian Rhapsody",
+    "artist": "Queen",
+    "title": "Bohemian Rhapsody",
     "category": "Nya skivor",
-    "subcategory": "Singlar",
-    "price": 99,
-    "image": "https://via.placeholder.com/200x200?text=Bohemian",
-    "description": "Klassisk singel från 1975",
+    "subcategory": "LP-skivor",
+    "price": 419,
+    "image": "./src/images/queen-bohemian-rhapsody-LP.jpg",
+    "description": "Bohemian Rhapsody (The Original Soundtrack), av Queen, utgivet år  2018.",
     "stock": 20
   },
   {
     "id": "b61351bf-3b14-4f11-9ecc-75109fd31d45",
-    "title": "David Bowie - Space Oddity",
+    "artist": "David Bowie",
+    "title": "Space Oddity",
     "category": "Begagnade skivor",
     "subcategory": "Singlar",
     "price": 79,
     "image": "https://via.placeholder.com/200x200?text=Space+Oddity",
     "description": "Begagnad singel från 1969",
     "stock": 5
+  },
+  {
+    "id": "93422460-f732-4f3e-ab39-c28d45b63c0a",
+    "artist": "AC/DC",
+    "title": "Back in black",
+    "category": "Nya skivor",
+    "subcategory": "LP-skivor",
+    "price": 300,
+    "description": "Detta är AC/DC:s första",
+    "stock": 0,
+    "image": "./src/images/ac-dc - back in black.jpg"
+  },
+  {
+    "id": "3dd436c4-ac96-4f8a-896a-f38caed0677a",
+    "artist": "AC/DC",
+    "title": "Highway to hell",
+    "category": "Nya skivor",
+    "subcategory": "LP-skivor",
+    "price": 300,
+    "description": "AC/DC:s sista skiva med Bon Scott som sångare. Utgiven 1979.",
+    "stock": 5,
+    "image": "./src/images/ac-dc - highway to hell.jpg"
+  },
+  {
+    "id": "9fa9d48b-6456-48a2-848f-f393be1eb4cd",
+    "artist": "Nazareth",
+    "title": "Loud'N'Proud",
+    "category": "Nya skivor",
+    "subcategory": "LP-skivor",
+    "price": 280,
+    "description": "Nazareths Loud'N'Proud är första gången utgiven år 1973.",
+    "stock": 5,
+    "image": "./src/images/nazareth-loud-n-proud.jpg"
+  },
+  {
+    "id": "a00e8374-af45-4ee9-b748-ea9694e132b8",
+    "title": "Razamanaz",
+    "category": "Begagnade skivor",
+    "subcategory": "LP-skivor",
+    "price": 200,
+    "description": "Nazareths Razamanaz är deras tredje skiva utgiven 1973.",
+    "stock": 2,
+    "image": "./src/images/nazareth-razamanaz.jpg"
+  },
+  {
+    "id": "4913aae4-938f-4536-9744-5ccc4aa33b57",
+    "title": "Hair of the dog",
+    "category": "Nya skivor",
+    "subcategory": "LP-skivor",
+    "price": 300,
+    "description": "Hair of the dog är Nazareths femte studioalbum, utgiven 1975.",
+    "stock": 5,
+    "image": "./src/images/nazareth-hair of the dog.jpg"
+  },
+  {
+    "id": "01b9ffe3-4c7b-4bf1-97ae-d5555e86c9bb",
+    "title": "Exercises",
+    "category": "Begagnade skivor",
+    "subcategory": "LP-skivor",
+    "price": 200,
+    "description": "Exercises är Nazareths andra studioalbum utgivet 1972.",
+    "stock": 3,
+    "image": "./src/images/nazareth-exercises.jpg"
+  },
+  {
+    "id": "e3fff34f-c344-413b-9a0d-35bc588ab50e",
+    "title": "Nazareth",
+    "category": "Begagnade skivor",
+    "subcategory": "LP-skivor",
+    "price": 200,
+    "description": "Detta är Nazareth första studioalbum utgivet 1971",
+    "stock": 3,
+    "image": "./src/images/nazareth-nazareth.jpg"
+  },
+  {
+    "id": "1524e722-098e-48e8-a5af-919ec13be821",
+    "title": "2XS",
+    "category": "Nya skivor",
+    "subcategory": "LP-skivor",
+    "price": 300,
+    "description": "2XS är Nazareths trettonde studioalbum utgivet 1982. Innehåller hiten Dream on.",
+    "stock": 3,
+    "image": "./src/images/nazareth-2xs.jpg"
   }
 ]

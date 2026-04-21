@@ -14,6 +14,7 @@ import CheckoutPage from './pages/CheckoutPage';
 import OrderDetailPage from './pages/OrderDetailPage';
 import CustomerOrdersPage from './pages/CustomerOrdersPage';
 import AdminPage from './pages/AdminPage';
+import RegisterAdminPage from './pages/RegisterAdminPage';
 import EditProductPage from './pages/EditProductPage';
 
 import './index.css';
@@ -36,6 +37,7 @@ function App() {
                 <Route path="/order/:orderId" element={<OrderDetailPage />} />
                 <Route path="/orders" element={<CustomerOrdersPage />} />
                 <Route path="/admin" element={<AdminPage />} />
+                <Route path="/admin/registerAdmin" element={<RegisterAdminPage />} />
                 <Route path="/admin/product/:productId" element={<EditProductPage />} />
                 <Route path="*" element={<Navigate to="/" />} />
               </Routes>

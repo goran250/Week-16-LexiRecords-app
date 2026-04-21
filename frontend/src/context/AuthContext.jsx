@@ -6,7 +6,6 @@ export const AuthContext = createContext();
 export const AuthProvider = ({ children }) => {
   const [user, setUser] = useState(() => {
     const savedUser = localStorage.getItem('user');
-    console.log('Loaded user from localStorage:', savedUser);
     return savedUser ? JSON.parse(savedUser) : null;
   });
 
@@ -21,10 +20,26 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
-  const registerUser = useCallback(async (fullname, email, password, address) => {
+  const register = useCallback(async (fullname, email, password, street, zipCode, city, country) => {
     try {
-      const response = await axios.post('/api/auth/registerUser', { fullname, email, password, address });
+      console.log("AuthContext");
+      const response = await axios.post('/api/auth/register', { fullname, email, password, street, zipCode, city, country });
       setUser(response.data);
+      
+      localStorage.setItem('user', JSON.stringify(response.data));
+      return response.data;
+    } catch (error) {
+      throw error.response?.data?.error || 'Registrering misslyckades';
+    }
+  }, []);
+
+  const registerAdmin = useCallback(async (fullname, email, password ) => {
+    try {
+      console.log("AuthContext");
+      const response = await axios.post('/api/auth/registerAdmin', { fullname, email, password, role: 'admin' });
+                             
+      setUser(response.data);
+      
       localStorage.setItem('user', JSON.stringify(response.data));
       return response.data;
     } catch (error) {
@@ -41,7 +56,7 @@ export const AuthProvider = ({ children }) => {
   const isAdmin = user?.role === 'admin';
 
   return (
-    <AuthContext.Provider value={{ user, login, register, logout, isAuthenticated, isAdmin }}>
+    <AuthContext.Provider value={{ user, login, register, registerAdmin, logout, isAuthenticated, isAdmin }}>
       {children}
     </AuthContext.Provider>
   );

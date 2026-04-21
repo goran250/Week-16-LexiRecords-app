@@ -76,6 +76,17 @@ const EditProductPage = () => {
 
         <form onSubmit={handleSubmit}>
           <div className="form-group">
+            <label>Artist/Grupp</label>
+            <input
+              type="text"
+              name="artist"
+              value={formData.artist}
+              onChange={handleChange}
+              required
+            />
+          </div>
+
+          <div className="form-group">
             <label>Titel</label>
             <input
               type="text"
@@ -125,33 +136,17 @@ const EditProductPage = () => {
 
           <div className="form-group">
             <label>Beskrivning</label>
-            <textarea
-              name="description"
-              value={formData.description}
-              onChange={handleChange}
-              rows="3"
-            />
+            <textarea name="description" value={formData.description} onChange={handleChange} rows="3" />
           </div>
 
           <div className="form-group">
             <label>Lager</label>
-            <input
-              type="number"
-              name="stock"
-              value={formData.stock}
-              onChange={handleChange}
-              required
-            />
+            <input type="number" name="stock" value={formData.stock} onChange={handleChange} required />
           </div>
 
           <div className="form-group">
-            <label>Bild URL</label>
-            <input
-              type="url"
-              name="image"
-              value={formData.image}
-              onChange={handleChange}
-            />
+            <label>Bildlänk</label>
+            <input type="text" name="image" value={formData.image} onChange={handleChange} />
           </div>
 
           <div className="form-actions">

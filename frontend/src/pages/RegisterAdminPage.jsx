@@ -2,30 +2,22 @@ import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 
-const RegisterPage = () => {
+const RegisterAdminPage = () => {
   const [fullname, setFullname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const [street, setStreet] = useState('');
-  const [zipCode, setZipCode] = useState('');
-  const [city, setCity] = useState('');
-  const [country, setCountry] = useState('');
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { register } = useContext(AuthContext);
+  const { registerAdmin } = useContext(AuthContext);
 
-  const handleAddressChange = (e) => {
-    const { name, value } = e.target;
-    setAddress(prev => ({ ...prev, [name]: value }));
-  };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
     if (fullname == "") {
-        setError('Fyll i ditt fullständiga namn!');
+        setError('Fyll i ett fullständigt namn!');
     }
     if (password !== confirmPassword) {
       setError('Lösenorden matchar inte');
@@ -40,8 +32,8 @@ const RegisterPage = () => {
     setLoading(true);
 
     try {
-      await register(fullname, email, password, street, zipCode, city, country);
-      navigate('/');
+      await registerAdmin(fullname, email, password);
+      // navigate('/');
     } catch (err) {
       setError(err);
     } finally {
@@ -51,9 +43,7 @@ const RegisterPage = () => {
 
   return (
     <div className="auth-container">
-      <h2 className="auth-title">Registrera konto</h2>
-      
-      {error && <div className="alert error">{error}</div>}
+      <h2 className="auth-title">Registrera person med admin behörighet</h2>
       
       <form onSubmit={handleSubmit}>
         <div className="form-group">
@@ -63,7 +53,7 @@ const RegisterPage = () => {
             value={fullname} 
             onChange={(e) => setFullname(e.target.value)}
             required
-            placeholder="Ditt fullständiga namn"
+            placeholder="Fullständigt namn"
           />
         </div>
 
@@ -100,39 +90,10 @@ const RegisterPage = () => {
           />
         </div>
         
-        <h3 className="h3-tag">Leveransadress (frivilligt)</h3>
-        <div className="form-group">
-          <label>Gata</label>
-          <input type="text" value={street} onChange={(e) => setStreet(e.target.value)} />
-        </div>
-
-        <div className="form-group">
-          <label>Postnummer</label>
-          <input type="text" value={zipCode} onChange={(e) => setZipCode(e.target.value)} />
-        </div>
-        <div className="form-group">
-          <label>Ort</label>
-          <input type="text" value={city} onChange={(e) => setCity(e.target.value)} />
-        </div>
-
-        <div className="form-group">
-            <label>Land</label>
-            <select name="country" id="country" value={country} onChange={(e) => setCountry(document.getElementById("country").value) }>
-                <option value="Sverige">Sverige</option>
-                <option value="Annat">Annat</option>
-            </select>
-        </div>
-
-        <button type="submit" className="primary" disabled={loading} style={{ width: '100%' }}>
-          {loading ? 'Registrerar...' : 'Registrera'}
-        </button>
+        <button type="submit" className="primary" disabled={loading} style={{ width: '100%' }}>Registrera</button>
       </form>
-
-      <div className="auth-link">
-        Har du redan ett konto? <a onClick={() => navigate('/login')}>Logga in här</a>
-      </div>
     </div>
   );
 };
 
-export default RegisterPage;
+export default RegisterAdminPage;

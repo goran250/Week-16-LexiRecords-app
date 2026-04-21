@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="footer-content">
         <div className="footer-section">
             <div className="logo" onClick={() => navigate('/')}>
-                <img src="./src/images/logo-record.webp" alt="LexiRecords logotype" class="logotype-img"/>
+                <img src="./src/images/logotype.webp" alt="LexiRecords logotype" class="logotype-img"/>
             </div>
             <p class="din-favorit-text">Din favorit skivbutik för nya och begagnade skivor av högsta kvalitet.</p>
         </div>

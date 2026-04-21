@@ -21,10 +21,63 @@
     "createdAt": "2026-04-19T23:05:41.619Z"
   },
   {
-    "id": "050d7e55-cda8-4d91-a400-5477ba06f9ba",
-    "email": "goran.rosenberg1@gmail.com",
-    "password": "$2a$10$DczU5LI6TkFMJS4F0fnJgOumFufwJAqlkzk95wx.H76R1QBZASo..",
+    "id": "34bf1eba-c072-4fa7-bf7d-eee0d9342e04",
+    "fullname": "GR",
+    "email": "goran.rosenberg1@tomelilla.nu",
+    "password": "$2a$10$wbbsMA6oGmsAP7bf2FoAs.im5Rj51BD6BGl4IvUwSaZfd5cFIVxpi",
+    "street": "",
+    "zipCode": "",
+    "city": "Tomelilla",
+    "country": "",
     "role": "customer",
-    "createdAt": "2026-04-19T23:28:00.572Z"
+    "createdAt": "2026-04-20T19:19:03.260Z"
+  },
+  {
+    "id": "e0bc3128-023b-4d7f-a2cd-9f0c6689c617",
+    "fullname": "GR",
+    "email": "goran.rosenberg2@gmail.com",
+    "password": "$2a$10$3LCxOlX27WloYs5iaoIWLu/MEGROhVqRnFyvoZP.2zutWGB2Va/oO",
+    "street": "",
+    "zipCode": "",
+    "city": "",
+    "country": "",
+    "role": "customer",
+    "createdAt": "2026-04-20T21:52:44.978Z"
+  },
+  {
+    "id": "cdf676ef-2660-4555-94d8-a5a57746d287",
+    "fullname": "GR",
+    "email": "goran.rosenberg3@gmail.com",
+    "password": "$2a$10$uUxg5kbsUZ7x6rwrMgWWducfMmXSh9E04/II/uhaYVN225BYEpwkK",
+    "street": "",
+    "zipCode": "",
+    "city": "",
+    "country": "",
+    "role": "customer",
+    "createdAt": "2026-04-20T21:57:31.247Z"
+  },
+  {
+    "id": "43bbf6aa-db75-462e-83c2-4c99681f89fe",
+    "fullname": "Ömer",
+    "email": "omer@lexicon.se",
+    "password": "$2a$10$.Y5m.WGBiCC4CqOQUqpI1.CI5f3Q7paz1Q4qQ8FpII5NJ2Av08RH.",
+    "role": "admin",
+    "createdAt": "2026-04-20T22:49:59.512Z"
+  },
+  {
+    "id": "8998a40e-5600-4e6e-aa55-017d416d8290",
+    "fullname": "Jan Rosenberg",
+    "email": "jan.rosenberg@tomelilla.nu",
+    "password": "$2a$10$0v627.x2B9dh1O6Ad6IjQOi4mS53sSR8qRJJ0ja7TznpkK.iTRknq",
+    "role": "admin",
+    "createdAt": "2026-04-20T22:51:45.927Z"
+  },
+  {
+    "id": "e9206c9a-a323-45f3-ac3d-cf7ce3dfd198",
+    "fullname": "GR",
+    "email": "goran.rosenberg4@gmail.com",
+    "password": "$2a$10$uYAquQQYh2u7UNFxFDnXbOOoqNTCPInKSQIXTVvcE1XuGIEz9PtcK",
+    "role": "admin",
+    "createdAt": "2026-04-20T23:00:06.729Z"
   }
 ]

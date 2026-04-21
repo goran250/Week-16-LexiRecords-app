@@ -13,7 +13,7 @@ const HomePage = () => {
         padding: '80px 20px',
         textAlign: 'center'
       }}>
-        <img src="./src/images/logo-record.webp" alt="LexiRecords logotype" className="logotype-img" style={{ marginBottom: '20px' }} />
+        <img src="./src/images/logotype.webp" alt="LexiRecords logotype" className="logotype-img" style={{ marginBottom: '20px' }} />
         <p style={{ fontSize: '20px', marginBottom: '30px' }}>Din favorit skivbutik för nya och begagnade skivor</p>
         <button className="primary" onClick={() => navigate('/shop')} style={{ fontSize: '16px', padding: '12px 30px' }}>
           Börja handla

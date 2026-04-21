@@ -17,7 +17,7 @@ const Header = () => {
     <header className="header">
       <div className="header-content">
         <div className="logo" onClick={() => navigate('/')}>
-          <img src="./src/images/logo-record.webp" alt="LexiRecord logotype" class="logotype-img"/>
+          <img src="./src/images/logotype.webp" alt="LexiRecord logotype" className="logotype-img"/>
         </div>
 
         <nav className="nav-center">

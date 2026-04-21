@@ -13,13 +13,8 @@ const ProductCard = ({ product, onDelete, isAdmin }) => {
 
   return (
     <div className="card product-card">
-      <img 
-        src={product.image} 
-        alt={product.title} 
-        className="product-image"
-        onError={(e) => e.target.src = 'https://via.placeholder.com/200x200?text=No+Image'}
-      />
-      <h3 className="product-title">{product.title}</h3>
+      <img src={product.image} alt={product.title} className="product-image" />
+      <h3 className="product-title">{product.artist } - {product.title}</h3>
       <p className="product-description">{product.description}</p>
       <div className="product-price">{product.price} kr</div>
       <div className="product-stock">
@@ -33,11 +28,7 @@ const ProductCard = ({ product, onDelete, isAdmin }) => {
             <button className="danger" onClick={() => onDelete(product.id)}>Ta bort</button>
           </>
         ) : (
-          <button 
-            className="primary" 
-            onClick={() => addToCart(product)}
-            disabled={product.stock === 0}
-          >
+          <button className="primary" onClick={() => addToCart(product)} disabled={product.stock === 0}>
             Lägg i varukorg
           </button>
         )}

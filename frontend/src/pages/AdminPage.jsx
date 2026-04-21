@@ -60,6 +60,10 @@ const AdminPage = () => {
     }
   };
 
+  const handleAdmin = () => {
+    navigate(`/admin/registerAdmin`);
+  };
+
   const handleDeleteProduct = async (productId) => {
     if (window.confirm('Är du säker?')) {
       try {
@@ -70,6 +74,7 @@ const AdminPage = () => {
       }
     }
   };
+
 
   return (
     <div className="container">
@@ -94,6 +99,7 @@ const AdminPage = () => {
         >
           Lägg till produkt
         </button>
+        <button className="secondary" onClick={handleAdmin}>Registrera admin</button>
       </div>
 
       {error && <div className="alert error">{error}</div>}
@@ -125,6 +131,7 @@ const AdminPage = () => {
               <thead>
                 <tr>
                   <th>Order ID</th>
+                  <th>Kundnamn</th>
                   <th>Datum</th>
                   <th>Totalt</th>
                   <th>Status</th>
@@ -135,6 +142,7 @@ const AdminPage = () => {
                 {orders.map(order => (
                   <tr key={order.id}>
                     <td>{order.id.substring(0, 8)}</td>
+                    <td>{order.userName}</td>
                     <td>{new Date(order.createdAt).toLocaleDateString('sv-SE')}</td>
                     <td>{order.totalPrice} kr</td>
                     <td>
@@ -186,8 +194,7 @@ const AdminPage = () => {
       {/* Add Product Tab */}
       {activeTab === 'add' && (
         <AddProductForm onSuccess={() => {
-          setActiveTab('products');
-          fetchData();
+          alert("Skivan har registrerats.");
         }} />
       )}
     </div>
@@ -196,6 +203,7 @@ const AdminPage = () => {
 
 const AddProductForm = ({ onSuccess }) => {
   const [formData, setFormData] = useState({
+    artist: '',
     title: '',
     category: 'Nya skivor',
     subcategory: 'LP-skivor',
@@ -252,6 +260,16 @@ const AddProductForm = ({ onSuccess }) => {
       {error && <div className="alert error">{error}</div>}
 
       <form onSubmit={handleSubmit}>
+         <div className="form-group">
+          <label>Artist/Grupp</label>
+          <input
+            type="text"
+            name="artist"
+            value={formData.artist}
+            onChange={handleChange}
+            required
+          />
+        </div>
         <div className="form-group">
           <label>Titel</label>
           <input
@@ -322,9 +340,9 @@ const AddProductForm = ({ onSuccess }) => {
         </div>
 
         <div className="form-group">
-          <label>Bild URL</label>
+          <label>Bildlänk</label>
           <input
-            type="url"
+            type="text"
             name="image"
             value={formData.image}
             onChange={handleChange}

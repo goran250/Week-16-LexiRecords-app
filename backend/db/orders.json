@@ -1,25 +1,108 @@
 [
   {
-    "id": "088f364e-5f04-42f3-9b90-d06007446b4d",
-    "userId": "ae564e5d-d25d-489f-b287-dc21ae7756cc",
+    "id": "ddbb43de-7a93-4c2f-bb4c-74d91ea22c83",
+    "userId": "b5f4d32a-0ae9-423e-8c63-fdf4283c2e3d",
+    "userName": "Göran Rosenberg",
     "items": [
       {
-        "id": "b61351bf-3b14-4f11-9ecc-75109fd31d45",
-        "title": "David Bowie - Space Oddity",
-        "category": "Begagnade skivor",
-        "subcategory": "Singlar",
-        "price": 79,
-        "image": "https://via.placeholder.com/200x200?text=Space+Oddity",
-        "description": "Begagnad singel från 1969",
-        "stock": 5,
+        "id": "a240cc12-094f-4f45-9fc1-de40e41b6ddc",
+        "title": "The Beatles - Abbey Road",
+        "category": "Nya skivor",
+        "subcategory": "LP-skivor",
+        "price": 299,
+        "image": "https://via.placeholder.com/200x200?text=Abbey+Road",
+        "description": "Klassisk album från 1969",
+        "stock": 10,
         "quantity": 1
       }
     ],
-    "totalPrice": 79,
+    "totalPrice": 358,
+    "status": "pending",
+    "archived": false,
+    "createdAt": "2026-04-20T14:43:22.185Z",
+    "updatedAt": "2026-04-20T14:43:22.185Z"
+  },
+  {
+    "id": "ad0ed27e-1e7a-4e79-acd8-a512b4f32f78",
+    "userId": "b5f4d32a-0ae9-423e-8c63-fdf4283c2e3d",
+    "userName": "GR",
+    "items": [
+      {
+        "id": "df7e1ba2-1f11-4f7a-b0b6-51daf6b7297d",
+        "title": "Pink Floyd - The Dark Side of the Moon",
+        "category": "Nya skivor",
+        "subcategory": "LP-skivor",
+        "price": 349,
+        "image": "https://via.placeholder.com/200x200?text=Dark+Side",
+        "description": "Ikoniskt album från 1973",
+        "stock": 15,
+        "quantity": 1
+      }
+    ],
+    "totalPrice": 408,
     "status": "delivered",
     "archived": false,
-    "createdAt": "2026-04-19T14:59:32.552Z",
-    "updatedAt": "2026-04-19T20:05:52.268Z"
+    "createdAt": "2026-04-20T14:46:37.487Z",
+    "updatedAt": "2026-04-20T22:13:06.145Z"
+  },
+  {
+    "id": "3fbfa23b-dd28-4b42-959c-28a2908028ee",
+    "userId": "cdf676ef-2660-4555-94d8-a5a57746d287",
+    "userName": "GR",
+    "items": [
+      {
+        "id": "3dd436c4-ac96-4f8a-896a-f38caed0677a",
+        "artist": "AC/DC",
+        "title": "Highway to hell",
+        "category": "Nya skivor",
+        "subcategory": "LP-skivor",
+        "price": 300,
+        "description": "AC/DC:s sista skiva med Bon Scott som sångare. Utgiven 1979.",
+        "stock": 5,
+        "image": "./src/images/ac-dc - highway to hell.jpg",
+        "quantity": 1
+      },
+      {
+        "id": "9fa9d48b-6456-48a2-848f-f393be1eb4cd",
+        "artist": "Nazareth",
+        "title": "Loud'N'Proud",
+        "category": "Nya skivor",
+        "subcategory": "LP-skivor",
+        "price": 280,
+        "description": "Nazareths Loud'N'Proud är första gången utgiven år 1973.",
+        "stock": 5,
+        "image": "./src/images/nazareth-loud-n-proud.jpg",
+        "quantity": 1
+      },
+      {
+        "id": "9a51d483-24eb-4aaa-92a4-c658e0b79c0e",
+        "artist": "Queen",
+        "title": "Bohemian Rhapsody",
+        "category": "Nya skivor",
+        "subcategory": "LP-skivor",
+        "price": 419,
+        "image": "./src/images/queen-bohemian-rhapsody-LP.jpg",
+        "description": "Bohemian Rhapsody (The Original Soundtrack), av Queen, är första gången utgivet år 2018.",
+        "stock": 20,
+        "quantity": 1
+      },
+      {
+        "id": "df7e1ba2-1f11-4f7a-b0b6-51daf6b7297d",
+        "artist": "Pink Floyd",
+        "title": "The dark side of the moon",
+        "category": "Nya skivor",
+        "subcategory": "LP-skivor",
+        "price": 349,
+        "image": "./src/images/pink-floyd-dark-side-of-the-moon-LP.jpg",
+        "description": "Ikoniskt album från 1973",
+        "stock": 15,
+        "quantity": 1
+      }
+    ],
+    "totalPrice": 1348,
+    "status": "shipped",
+    "archived": false,
+    "createdAt": "2026-04-20T22:11:57.011Z",
+    "updatedAt": "2026-04-20T22:13:02.755Z"
   }
- 
 ]

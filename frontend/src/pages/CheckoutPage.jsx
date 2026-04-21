@@ -27,9 +27,6 @@ const CheckoutPage = () => {
   const canSend = address.fullName && address.street && address.postalCode && address.city && address.country && cartItems.length > 0;
 
   useEffect(() => {
-    if (user) {
-        console.log('CheckoutPage - Current user:', user);
-    }
     if (!user) {
       navigate('/login');
       return;
@@ -41,6 +38,11 @@ const CheckoutPage = () => {
   }, [user, cartItems, navigate]);
 
   const handleChange = (e) => {
+    const { name, value } = e.target;
+    setAddress(prev => ({ ...prev, [name]: value }));
+  };
+
+  const handleChangeCountry = (e) => {
     const { name, value } = e.target;
     setAddress(prev => ({ ...prev, [name]: value }));
   };
@@ -57,6 +59,7 @@ const CheckoutPage = () => {
     try {
       const response = await apiService.createOrder({
         userId: user.id,
+        userName: user.fullName,
         items: cartItems,
         totalPrice: finalTotal
       });
@@ -138,7 +141,7 @@ const CheckoutPage = () => {
 
             <div className="form-group">
               <label>Land</label>
-              <select name="country" value={address.country} onChange={handleChange}>
+              <select name="country" value={address.country} onChange={handleChangeCountry}>
                 <option value="Sverige">Sverige</option>
                 <option value="Annat">Annat</option>
               </select>
