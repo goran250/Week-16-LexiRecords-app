@@ -24,11 +24,11 @@ const ProductCard = ({ product, onDelete, isAdmin }) => {
       <div className="product-actions">
         {isAdmin ? (
           <>
-            <button className="secondary" onClick={handleEdit}>Redigera</button>
+            <button className="primary blue" onClick={handleEdit}>Redigera</button>
             <button className="danger" onClick={() => onDelete(product.id)}>Ta bort</button>
           </>
         ) : (
-          <button className="primary" onClick={() => addToCart(product)} disabled={product.stock === 0}>
+          <button className="primary blue" onClick={() => addToCart(product)} disabled={product.stock === 0}>
             Lägg i varukorg
           </button>
         )}

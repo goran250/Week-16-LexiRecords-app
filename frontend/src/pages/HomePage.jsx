@@ -10,12 +10,12 @@ const HomePage = () => {
       <div style={{
         background: 'linear-gradient(135deg, var(--primary-blue) 0%, var(--light-blue) 100%)',
         color: 'white',
-        padding: '80px 20px',
+        padding: '50px 20px',
         textAlign: 'center'
       }}>
         <img src="./src/images/logotype.webp" alt="LexiRecords logotype" className="logotype-img" style={{ marginBottom: '20px' }} />
         <p style={{ fontSize: '20px', marginBottom: '30px' }}>Din favorit skivbutik för nya och begagnade skivor</p>
-        <button className="primary" onClick={() => navigate('/shop')} style={{ fontSize: '16px', padding: '12px 30px' }}>
+        <button className="primary green" onClick={() => navigate('/shop')} style={{ fontSize: '16px', padding: '12px 30px' }}>
           Börja handla
         </button>
       </div>

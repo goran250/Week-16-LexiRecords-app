@@ -150,7 +150,7 @@ const EditProductPage = () => {
           </div>
 
           <div className="form-actions">
-            <button type="submit" className="primary" disabled={saving}>
+            <button type="submit" className="primary blue" disabled={saving}>
               {saving ? 'Sparar...' : 'Spara ändringar'}
             </button>
             <button type="button" className="secondary" onClick={() => navigate('/admin')}>

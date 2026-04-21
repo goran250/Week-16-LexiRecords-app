@@ -41,7 +41,6 @@ button {
 }
 
 button.primary {
-  background: linear-gradient(135deg, var(--dark-green) 0%, var(--light-green) 100%);
   color: white;
 }
 
@@ -77,6 +76,19 @@ button.success {
 button.success:hover {
   background: #218838;
 }
+button.green {
+  background: linear-gradient(135deg, var(--dark-green) 0%, var(--light-green) 100%);
+}
+
+button.blue {
+  background: linear-gradient(135deg, var(--primary-blue-button) 0%, var(--light-blue) 100%);
+}
+
+#success-message {
+  color:#19672a;
+  margin-top: 15px;
+  text-align: center;
+}
 
 input, textarea, select {
   padding: 10px;
@@ -98,7 +110,7 @@ input:focus, textarea:focus, select:focus {
   color: white;
   padding: 20px 0;
   box-shadow: 0 2px 8px rgba(0, 51, 102, 0.1);
-  position: sticky;
+
   top: 0;
   z-index: 100;
 }
@@ -128,6 +140,10 @@ input:focus, textarea:focus, select:focus {
     float: left
 }
 
+.nav-box {
+  display: flex;
+  gap: 50px;
+}
 .nav-center {
   display: flex;
   gap: 30px;
@@ -136,7 +152,7 @@ input:focus, textarea:focus, select:focus {
 
 .nav-right {
   display: flex;
-  gap: 15px;
+  gap: 25px;
   align-items: center;
 }
 
@@ -226,6 +242,10 @@ form h3.h3-tag {
 
 .footer p.din-favorit-text {
     clear: both;
+}
+
+.footer .special {
+  padding-left: 30px;
 }
 
 /* Main container */
@@ -491,16 +511,19 @@ tr:hover {
 .auth-link a:hover {
   text-decoration: underline;
 }
-
+@media (max-width: 890px) {
+  .footer .special {
+    padding-left: 0;
+  }
+}
 /* Responsive */
-@media (max-width: 768px) {
+@media (max-width: 950px) {
   .header-content {
     flex-direction: column;
     gap: 15px;
   }
 
   .nav-center {
-    width: 100%;
     justify-content: center;
   }
 
@@ -512,5 +535,19 @@ tr:hover {
 
   .auth-container {
     margin: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  .nav-box {
+      display: block;
+  }
+  
+  .nav-center {
+      margin-bottom: 20px;
+  }
+
+  .nav-right {
+    gap: 15px;
   }
 }

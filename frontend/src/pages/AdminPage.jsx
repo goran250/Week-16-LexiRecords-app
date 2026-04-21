@@ -28,7 +28,9 @@ const AdminPage = () => {
       if (activeTab === 'orders') {
         const response = await apiService.getOrders(null, orderStatus);
         setOrders(response.data);
-      } else {
+      } 
+      else 
+      {
         const response = await apiService.getProducts();
         setProducts(response.data);
       }
@@ -194,7 +196,8 @@ const AdminPage = () => {
       {/* Add Product Tab */}
       {activeTab === 'add' && (
         <AddProductForm onSuccess={() => {
-          alert("Skivan har registrerats.");
+          // alert("Skivan har registrerats.");
+          document.getElementById('success-message').innerHTML = 'Skivan har registrerats.';
         }} />
       )}
     </div>
@@ -212,7 +215,9 @@ const AddProductForm = ({ onSuccess }) => {
     stock: '',
     image: ''
   });
+
   const [loading, setLoading] = useState(false);
+  
   const [error, setError] = useState('');
 
   const categories = {
@@ -353,6 +358,8 @@ const AddProductForm = ({ onSuccess }) => {
           {loading ? 'Skapar...' : 'Lägg till produkt'}
         </button>
       </form>
+
+          <div id="success-message"></div>
     </div>
   );
 };

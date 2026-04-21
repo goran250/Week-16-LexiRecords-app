@@ -37,13 +37,11 @@ export const apiService = {
   deleteOrder: (id) => axios.delete(`${API_BASE}/orders/${id}`),
 
   // Auth
-  login: (email, password) => axios.post(`${API_BASE}/auth/login`, { email, password }),
+  ///login: (email, password) => axios.post(`${API_BASE}/auth/login`, { email, password }),
   
-  register: (fullname, email, password, street, zipCode, city, country) =>
-     axios.post(`${API_BASE}/auth/register`, {fullname, email, password, street, zipCode, city, country}),
+  /* register: (fullname, email, password, street, zipCode, city, country) =>
+     axios.post(`${API_BASE}/auth/register`, {fullname, email, password, street, zipCode, city, country}), */
   
   
-
-  // Admin
-  registerAdmin: (fullname, email, password) => axios.post(`${API_BASE}/auth/registerAdmin`, { fullname, email, password, role: 'admin' })
+  // registerAdmin: (fullname, email, password) => axios.post(`${API_BASE}/auth/registerAdmin`, { fullname, email, password, role: 'admin' })
 };

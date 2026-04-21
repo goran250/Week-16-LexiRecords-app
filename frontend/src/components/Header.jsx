@@ -19,51 +19,52 @@ const Header = () => {
         <div className="logo" onClick={() => navigate('/')}>
           <img src="./src/images/logotype.webp" alt="LexiRecord logotype" className="logotype-img"/>
         </div>
-
-        <nav className="nav-center">
-          <span className="nav-link" onClick={() => navigate('/shop')}>
-            Affären
-          </span>
-          {isAuthenticated && (
-            <>
-              {isAdmin ? (
-                <span className="nav-link" onClick={() => navigate('/admin')}>
-                  Admin
-                </span>
-              ) : (
-                <span className="nav-link" onClick={() => navigate('/orders')}>
-                  Mina Ordrar
-                </span>
+        <div className="nav-box">
+          <nav className="nav-center">
+            <span className="nav-link" onClick={() => navigate('/shop')}>
+              Affären
+            </span>
+            {isAuthenticated && (
+              <>
+                {isAdmin ? (
+                  <span className="nav-link" onClick={() => navigate('/admin')}>
+                    Admin
+                  </span>
+                ) : (
+                  <span className="nav-link" onClick={() => navigate('/orders')}>
+                    Mina Ordrar
+                  </span>
+                )}
+              </>
+            )}
+          </nav>
+        
+          <div className="nav-right">
+            <div className="cart-icon" onClick={() => navigate('/cart')}>
+              🛒
+              {cartItems.length > 0 && (
+                <span className="cart-badge">{cartItems.length}</span>
               )}
-            </>
-          )}
-        </nav>
+            </div>
 
-        <div className="nav-right">
-          <div className="cart-icon" onClick={() => navigate('/cart')}>
-            🛒
-            {cartItems.length > 0 && (
-              <span className="cart-badge">{cartItems.length}</span>
+            {isAuthenticated ? (
+              <>
+                <span style={{ fontSize: '13px' }}>{user.email}</span>
+                <button className="primary green" style={{ padding: '6px 12px', fontSize: '12px' }} onClick={handleLogout}>
+                  Logga ut
+                </button>
+              </>
+            ) : (
+              <>
+                <button className="primary green" style={{ padding: '6px 12px', fontSize: '12px' }} onClick={() => navigate('/login')}>
+                  Logga in
+                </button>
+                <button className="secondary" style={{ padding: '6px 12px', fontSize: '12px' }} onClick={() => navigate('/register')}>
+                  Registrera
+                </button>
+              </>
             )}
           </div>
-
-          {isAuthenticated ? (
-            <>
-              <span style={{ fontSize: '13px' }}>{user.email}</span>
-              <button className="primary" style={{ padding: '6px 12px', fontSize: '12px' }} onClick={handleLogout}>
-                Logga ut
-              </button>
-            </>
-          ) : (
-            <>
-              <button className="primary" style={{ padding: '6px 12px', fontSize: '12px' }} onClick={() => navigate('/login')}>
-                Logga in
-              </button>
-              <button className="secondary" style={{ padding: '6px 12px', fontSize: '12px' }} onClick={() => navigate('/register')}>
-                Registrera
-              </button>
-            </>
-          )}
         </div>
       </div>
     </header>

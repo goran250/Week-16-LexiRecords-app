@@ -65,19 +65,27 @@
     "createdAt": "2026-04-20T22:49:59.512Z"
   },
   {
-    "id": "8998a40e-5600-4e6e-aa55-017d416d8290",
-    "fullname": "Jan Rosenberg",
-    "email": "jan.rosenberg@tomelilla.nu",
-    "password": "$2a$10$0v627.x2B9dh1O6Ad6IjQOi4mS53sSR8qRJJ0ja7TznpkK.iTRknq",
+    "id": "31145296-bbc2-4a79-a65a-896daed6079f",
+    "fullname": "Pelle Persson",
+    "email": "pelle.rosenberg@tomelilla.nu",
+    "password": "$2a$10$zQDxQJBqvgP.pUE4WCfr7.r7Pu5Q2JxApBM.Zh5UCV2Vj7zzPrruC",
     "role": "admin",
-    "createdAt": "2026-04-20T22:51:45.927Z"
+    "createdAt": "2026-04-21T09:22:25.437Z"
   },
   {
-    "id": "e9206c9a-a323-45f3-ac3d-cf7ce3dfd198",
-    "fullname": "GR",
-    "email": "goran.rosenberg4@gmail.com",
-    "password": "$2a$10$uYAquQQYh2u7UNFxFDnXbOOoqNTCPInKSQIXTVvcE1XuGIEz9PtcK",
+    "id": "339f8b71-5ef7-4357-95a8-689ddb81a2f0",
+    "fullname": "Karl Svensson",
+    "email": "karl.rosenberg@tomelilla.nu",
+    "password": "$2a$10$wk5fZsYluVWmfwC.SZJFi.Abh0TUaP0Y8vFy7fSTbiv8FuQRLSFVu",
     "role": "admin",
-    "createdAt": "2026-04-20T23:00:06.729Z"
+    "createdAt": "2026-04-21T09:24:50.679Z"
+  },
+  {
+    "id": "4e881480-b29f-4040-9a41-2996088527ac",
+    "fullname": "päron",
+    "email": "peron.rosenberg@tomelilla.nu",
+    "password": "$2a$10$JinJ0diYeG.jEllU2e9yeO2feJh54MhWdfoyGKdiAYgY9ByrprxE2",
+    "role": "admin",
+    "createdAt": "2026-04-21T09:27:06.922Z"
   }
 ]

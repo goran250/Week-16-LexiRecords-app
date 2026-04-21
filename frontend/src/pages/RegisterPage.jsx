@@ -123,7 +123,7 @@ const RegisterPage = () => {
             </select>
         </div>
 
-        <button type="submit" className="primary" disabled={loading} style={{ width: '100%' }}>
+        <button type="submit" className="primary blue" disabled={loading} style={{ width: '100%' }}>
           {loading ? 'Registrerar...' : 'Registrera'}
         </button>
       </form>

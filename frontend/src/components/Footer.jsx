@@ -11,7 +11,7 @@ const Footer = () => {
             <p class="din-favorit-text">Din favorit skivbutik för nya och begagnade skivor av högsta kvalitet.</p>
         </div>
         
-        <div className="footer-section">
+        <div className="footer-section special">
           <h3>Kategorier</h3>
           <a href="/shop?category=Nya%20skivor">Nya skivor</a>
           <a href="/shop?category=Begagnade%20skivor">Begagnade skivor</a>

@@ -84,7 +84,7 @@ const CheckoutPage = () => {
           <div className="alert success">{successMessage}</div>
           <p><strong>Ordernummer:</strong> {createdOrderId}</p>
           <p>Ordern är registrerad som väntande i systemet.</p>
-          <button className="primary" style={{ marginTop: '20px' }} onClick={() => navigate('/orders')}>
+          <button className="primary blue" style={{ marginTop: '20px' }} onClick={() => navigate('/orders')}>
             Gå till Mina Ordrar
           </button>
         </div>
@@ -148,7 +148,7 @@ const CheckoutPage = () => {
             </div>
 
             <button
-              className="primary"
+              className="primary blue"
               onClick={handleSendOrder}
               disabled={!canSend || loading}
               style={{ width: '100%', marginTop: '10px' }}

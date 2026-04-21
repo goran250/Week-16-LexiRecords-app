@@ -32,18 +32,19 @@ const RegisterAdminPage = () => {
     setLoading(true);
 
     try {
-      await registerAdmin(fullname, email, password);
-      // navigate('/');
+      document.getElementById('success-message').innerHTML = 'En ny användare med adminbehörighet har skapats.'; 
+      await registerAdmin(fullname, email, password);    
     } catch (err) {
       setError(err);
     } finally {
+      
       setLoading(false);
     }
   };
 
   return (
     <div className="auth-container">
-      <h2 className="auth-title">Registrera person med admin behörighet</h2>
+      <h2 className="auth-title">Registrera ny användare med adminbehörighet</h2>
       
       <form onSubmit={handleSubmit}>
         <div className="form-group">
@@ -90,8 +91,12 @@ const RegisterAdminPage = () => {
           />
         </div>
         
-        <button type="submit" className="primary" disabled={loading} style={{ width: '100%' }}>Registrera</button>
+        <div className="form-actions">
+          <button type="submit" className="primary blue" disabled={loading} style={{ width: '100%' }}>Registrera</button>
+          <button type="button" className="secondary" onClick={() => navigate('/admin')}>Avbryt</button>
+        </div>
       </form>
+      <div id="success-message"></div>
     </div>
   );
 };

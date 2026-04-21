@@ -22,7 +22,6 @@ export const AuthProvider = ({ children }) => {
 
   const register = useCallback(async (fullname, email, password, street, zipCode, city, country) => {
     try {
-      console.log("AuthContext");
       const response = await axios.post('/api/auth/register', { fullname, email, password, street, zipCode, city, country });
       setUser(response.data);
       
@@ -35,15 +34,19 @@ export const AuthProvider = ({ children }) => {
 
   const registerAdmin = useCallback(async (fullname, email, password ) => {
     try {
-      console.log("AuthContext");
-      const response = await axios.post('/api/auth/registerAdmin', { fullname, email, password, role: 'admin' });
-                             
+     
+      const response = await axios.post('/api/auth/registerAdmin', { fullname, email, password, role: 'admin' });  
+    
       setUser(response.data);
       
       localStorage.setItem('user', JSON.stringify(response.data));
       return response.data;
     } catch (error) {
       throw error.response?.data?.error || 'Registrering misslyckades';
+    }
+    finally {
+      document.getElementById('success-message').innerHTML = 'En ny användare med adminbehörighet har skapats'; 
+      setLoading(false);
     }
   }, []);
 
