@@ -87,5 +87,37 @@
     "password": "$2a$10$JinJ0diYeG.jEllU2e9yeO2feJh54MhWdfoyGKdiAYgY9ByrprxE2",
     "role": "admin",
     "createdAt": "2026-04-21T09:27:06.922Z"
+  },
+  {
+    "id": "03390dc9-2f62-4d57-a748-cf1b2995905c",
+    "fullname": "Per",
+    "email": "per.rosenberg@tomelilla.nu",
+    "password": "$2a$10$Aztd6MpWv3r2pG2IaY8Om.YMdgXh/jkvhfiBYdA7aRhuMO3Xi9SNy",
+    "role": "admin",
+    "createdAt": "2026-04-21T12:34:15.677Z"
+  },
+  {
+    "id": "6f6d7fa6-c8e5-4dca-8afe-e6e0cc689357",
+    "fullname": "guran",
+    "email": "guran.rosenberg@tomelilla.nu",
+    "password": "$2a$10$4yfOTZp89XDQoICu94RqeuM8GeOi6vCyUkypfl2HrKrJFqRJMztxi",
+    "role": "admin",
+    "createdAt": "2026-04-21T12:36:39.064Z"
+  },
+  {
+    "id": "f032e381-54bc-4ad9-a169-3977cdab7d07",
+    "fullname": "gorros",
+    "email": "gorros.rosenberg@tomelilla.nu",
+    "password": "$2a$10$WhMkwthfrLy1e3/f09g.jukO9lF2h81HGoR4LWXHpWFi/3uBUsBBC",
+    "role": "admin",
+    "createdAt": "2026-04-21T12:37:44.952Z"
+  },
+  {
+    "id": "f8acc760-47b5-4874-bf2c-2853cf24e3cb",
+    "fullname": "gör",
+    "email": "gor.rosenberg@tomelilla.nu",
+    "password": "$2a$10$aoLWP2PpliBIaJwg847ct.0qnfD3qJRtbhit643q9SnQiHf20CmGm",
+    "role": "admin",
+    "createdAt": "2026-04-21T12:39:20.736Z"
   }
 ]

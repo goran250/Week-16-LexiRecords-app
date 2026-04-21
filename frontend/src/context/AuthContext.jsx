@@ -34,7 +34,6 @@ export const AuthProvider = ({ children }) => {
 
   const registerAdmin = useCallback(async (fullname, email, password ) => {
     try {
-     
       const response = await axios.post('/api/auth/registerAdmin', { fullname, email, password, role: 'admin' });  
     
       setUser(response.data);
@@ -45,7 +44,7 @@ export const AuthProvider = ({ children }) => {
       throw error.response?.data?.error || 'Registrering misslyckades';
     }
     finally {
-      document.getElementById('success-message').innerHTML = 'En ny användare med adminbehörighet har skapats'; 
+      
       setLoading(false);
     }
   }, []);

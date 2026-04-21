@@ -32,12 +32,13 @@ const RegisterAdminPage = () => {
     setLoading(true);
 
     try {
-      document.getElementById('success-message').innerHTML = 'En ny användare med adminbehörighet har skapats.'; 
+      document.getElementById('success-message').innerHTML = 'En ny användare med adminbehörighet har skapats'; 
       await registerAdmin(fullname, email, password);    
-    } catch (err) {
+    } 
+    catch (err) {
       setError(err);
-    } finally {
-      
+    } 
+    finally {
       setLoading(false);
     }
   };
