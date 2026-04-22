@@ -8,8 +8,13 @@ const ProductCard = ({ product, onDelete, isAdmin }) => {
   const { addToCart } = useContext(CartContext);
 
   const handleEdit = () => {
-    navigate(`/admin/product/${product.id}`);
+    navigate(`/admin/editProduct/${product.id}`);
   };
+
+  const openCustomPopup = (message) =>  { 
+      document.getElementById("popup-message").innerHTML = message;
+      document.getElementById("custom-popup").style.display = "block";
+  }
 
   return (
     <div className="card product-card">
@@ -28,7 +33,7 @@ const ProductCard = ({ product, onDelete, isAdmin }) => {
             <button className="danger" onClick={() => onDelete(product.id)}>Ta bort</button>
           </>
         ) : (
-          <button className="primary blue" onClick={() => addToCart(product)} disabled={product.stock === 0}>
+          <button className="primary blue" onClick={() => {addToCart(product); openCustomPopup("Skivan har placerats i varukorgen!")}} disabled={product.stock === 0}>
             Lägg i varukorg
           </button>
         )}

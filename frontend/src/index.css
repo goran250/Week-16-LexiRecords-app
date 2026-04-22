@@ -85,9 +85,34 @@ button.blue {
 }
 
 #success-message {
-  color:#19672a;
-  margin-top: 15px;
+  display: none;
+  background-color: #21a53f;
+  color: white; 
+  border-radius: 8px;
+  padding: 8px 4px;
+  margin-top: 20px;
   text-align: center;
+}
+
+#custom-popup {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  width: 300px;  
+  height: auto;   
+  margin-left: -150px;   /* negative half of width above */
+  margin-top: -150px;   /* negative half of height above */
+  padding: 20px;
+  background-color: white;
+  color: black;
+  border-radius: 8px;
+  border: 2px solid #888;
+}
+
+#custom-popup button {
+    display: block;
+    margin: 20px auto 0;
 }
 
 input, textarea, select {
@@ -482,7 +507,7 @@ tr:hover {
 
 /* Auth pages */
 .auth-container {
-  max-width: 400px;
+  max-width: 450px;
   margin: 60px auto;
   padding: 30px;
   background: white;
@@ -549,5 +574,11 @@ tr:hover {
 
   .nav-right {
     gap: 15px;
+  }
+}
+
+@media (max-width: 450px) {
+  .logo img, .logotype-img  {
+    width: 300px;
   }
 }

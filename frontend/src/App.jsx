@@ -16,6 +16,8 @@ import CustomerOrdersPage from './pages/CustomerOrdersPage';
 import AdminPage from './pages/AdminPage';
 import RegisterAdminPage from './pages/RegisterAdminPage';
 import EditProductPage from './pages/EditProductPage';
+import AddProductPage from './pages/AddProductPage';
+import ProductsPage from './pages/ProductsPage';
 
 import './index.css';
 
@@ -37,8 +39,10 @@ function App() {
                 <Route path="/order/:orderId" element={<OrderDetailPage />} />
                 <Route path="/orders" element={<CustomerOrdersPage />} />
                 <Route path="/admin" element={<AdminPage />} />
+                <Route path="/admin/products" element={<ProductsPage />} />
                 <Route path="/admin/registerAdmin" element={<RegisterAdminPage />} />
-                <Route path="/admin/product/:productId" element={<EditProductPage />} />
+                <Route path="/admin/editProduct/:productId" element={<EditProductPage />} />
+                <Route path="/admin/addProduct" element={<AddProductPage />} />
                 <Route path="*" element={<Navigate to="/" />} />
               </Routes>
             </main>

@@ -2,6 +2,7 @@ import React, { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { CartContext } from '../context/CartContext';
+import { apiService } from '../services/api';
 
 const Header = () => {
   const navigate = useNavigate();
@@ -13,8 +14,15 @@ const Header = () => {
     navigate('/');
   };
 
+  const closeCustomPopup = () => { document.getElementById("custom-popup").style.display = "none"};
+ 
+
   return (
     <header className="header">
+      <div id="custom-popup">
+        <div id="popup-message"></div>
+        <button class="primary blue" onClick={closeCustomPopup}>Stäng</button>
+      </div>
       <div className="header-content">
         <div className="logo" onClick={() => navigate('/')}>
           <img src="./src/images/logotype.webp" alt="LexiRecord logotype" className="logotype-img"/>

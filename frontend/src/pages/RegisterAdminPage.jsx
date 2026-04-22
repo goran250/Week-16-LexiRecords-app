@@ -11,7 +11,7 @@ const RegisterAdminPage = () => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
   const { registerAdmin } = useContext(AuthContext);
-
+ 
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -32,72 +32,85 @@ const RegisterAdminPage = () => {
     setLoading(true);
 
     try {
-      document.getElementById('success-message').innerHTML = 'En ny användare med adminbehörighet har skapats'; 
-      await registerAdmin(fullname, email, password);    
+      registerAdmin(fullname, email, password);    
     } 
     catch (err) {
       setError(err);
     } 
     finally {
+      document.getElementById('success-message').style.display = "block";
       setLoading(false);
     }
   };
 
   return (
-    <div className="auth-container">
-      <h2 className="auth-title">Registrera ny användare med adminbehörighet</h2>
-      
-      <form onSubmit={handleSubmit}>
-        <div className="form-group">
-          <label>Fullständigt namn</label>
-          <input
-            type="text"
-            value={fullname} 
-            onChange={(e) => setFullname(e.target.value)}
-            required
-            placeholder="Fullständigt namn"
-          />
-        </div>
+    <div className="container">
+      <h1 className="page-title">Admin Panel</h1>
 
-        <div className="form-group">
-          <label>E-postadress</label>
-          <input
-            type="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            required
-            placeholder="din@epost.se"
-          />
-        </div>
+      <div style={{ display: 'flex', gap: '10px', marginBottom: '30px' }}>
+        <button className="secondary" onClick={() => navigate('/admin')}>Ordrar</button>
 
-        <div className="form-group">
-          <label>Lösenord</label>
-          <input
-            type="password"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            required
-            placeholder="Minst 6 tecken"
-          />
-        </div>
+        <button className="secondary" onClick={() => navigate('/admin/products')}>Produkter</button>
+       
+        <button className="secondary" onClick={() => navigate('/admin/addProduct')}>Lägg till produkt</button>
+      </div>
+ 
+      <div className="card" style={{ maxWidth: '500px' }}>
 
-        <div className="form-group">
-          <label>Bekräfta lösenord</label>
-          <input
-            type="password"
-            value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
-            required
-            placeholder="Upprepa ditt lösenord"
-          />
-        </div>
+        <h2 className="auth-title">Registrera ny användare med adminbehörighet</h2>
         
-        <div className="form-actions">
-          <button type="submit" className="primary blue" disabled={loading} style={{ width: '100%' }}>Registrera</button>
-          <button type="button" className="secondary" onClick={() => navigate('/admin')}>Avbryt</button>
-        </div>
-      </form>
-      <div id="success-message"></div>
+        <form onSubmit={handleSubmit}>
+          <div className="form-group">
+            <label>Fullständigt namn</label>
+            <input
+              type="text"
+              value={fullname} 
+              onChange={(e) => setFullname(e.target.value)}
+              required
+              placeholder="Fullständigt namn"
+            />
+          </div>
+
+          <div className="form-group">
+            <label>E-postadress</label>
+            <input
+              type="email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              required
+              placeholder="din@epost.se"
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Lösenord</label>
+            <input
+              type="password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
+              required
+              placeholder="Minst 6 tecken"
+            />
+          </div>
+
+          <div className="form-group">
+            <label>Bekräfta lösenord</label>
+            <input
+              type="password"
+              value={confirmPassword}
+              onChange={(e) => setConfirmPassword(e.target.value)}
+              required
+              placeholder="Upprepa ditt lösenord"
+            />
+          </div>
+          
+          <div className="form-actions">
+            <button type="submit" className="primary blue" disabled={loading}>Registrera</button>
+            <button type="button" className="secondary" onClick={() => navigate('/admin')}>Avbryt</button>
+          </div>
+        </form>
+        <div id="success-message">En ny användare med adminbehörighet har skapats.</div>
+      </div>
     </div>
   );
 };

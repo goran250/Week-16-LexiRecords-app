@@ -21,11 +21,13 @@ const RegisterPage = () => {
     setAddress(prev => ({ ...prev, [name]: value }));
   };
 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     setError('');
     if (fullname == "") {
         setError('Fyll i ditt fullständiga namn!');
+        return;
     }
     if (password !== confirmPassword) {
       setError('Lösenorden matchar inte');

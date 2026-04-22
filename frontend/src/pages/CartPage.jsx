@@ -25,7 +25,7 @@ const CartPage = () => {
         <div className="empty-state">
           <h3>Din varukorg är tom</h3>
           <p>Lägg till något för att komma igång!</p>
-          <button className="primary" onClick={() => navigate('/shop')}>
+          <button className="primary blue" style={{ margin: '30px 0 0 0'}} onClick={() => navigate('/shop')}>
             Gå till affären
           </button>
         </div>
@@ -46,7 +46,7 @@ const CartPage = () => {
               <tbody>
                 {cartItems.map(item => (
                   <tr key={item.id}>
-                    <td>{item.title}</td>
+                    <td>{item.artist} - {item.title}</td>
                     <td>{item.price} kr</td>
                     <td>
                       <input
@@ -78,7 +78,7 @@ const CartPage = () => {
             <div style={{ fontSize: '13px', color: 'var(--light-text)', marginBottom: '20px' }}>
               Frakt kommer läggas till vid kassa
             </div>
-            <button className="primary" onClick={handleCheckout} style={{ width: '100%', marginBottom: '10px' }}>
+            <button className="primary blue" onClick={handleCheckout} style={{ width: '100%', marginBottom: '10px' }}>
               Gå till kassa
             </button>
             <button className="secondary" onClick={() => navigate('/shop')} style={{ width: '100%' }}>

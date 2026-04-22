@@ -44,7 +44,6 @@ const LoginPage = () => {
         </div>
 
         <div className="form-group">
-          <label>Lösenord</label>
           <input
             type="password"
             value={password}
@@ -54,7 +53,7 @@ const LoginPage = () => {
           />
         </div>
 
-        <button type="submit" className="primary" disabled={loading} style={{ width: '100%' }}>
+        <button type="submit" className="primary blue" disabled={loading} style={{ width: '100%' }}>
           {loading ? 'Loggar in...' : 'Logga in'}
         </button>
       </form>

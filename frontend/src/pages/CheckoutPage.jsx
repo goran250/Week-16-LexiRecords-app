@@ -10,7 +10,7 @@ const CheckoutPage = () => {
   const { cartItems, getTotalPrice, clearCart } = useContext(CartContext);
 
   const [address, setAddress] = useState({
-    fullName: '',
+    fullname: '',
     street: '',
     zipCode: '',
     city: '',
@@ -24,7 +24,7 @@ const CheckoutPage = () => {
   const orderTotal = getTotalPrice();
   const shippingCost = orderTotal >= 400 ? 0 : 59;
   const finalTotal = orderTotal + shippingCost;
-  const canSend = address.fullName && address.street && address.postalCode && address.city && address.country && cartItems.length > 0;
+  const canSend = address.fullname && address.street && address.postalCode && address.city && address.country && cartItems.length > 0;
 
   useEffect(() => {
     if (!user) {
@@ -59,7 +59,7 @@ const CheckoutPage = () => {
     try {
       const response = await apiService.createOrder({
         userId: user.id,
-        userName: user.fullName,
+        userName: address.fullname,
         items: cartItems,
         totalPrice: finalTotal
       });
@@ -85,7 +85,7 @@ const CheckoutPage = () => {
           <p><strong>Ordernummer:</strong> {createdOrderId}</p>
           <p>Ordern är registrerad som väntande i systemet.</p>
           <button className="primary blue" style={{ marginTop: '20px' }} onClick={() => navigate('/orders')}>
-            Gå till Mina Ordrar
+            Gå till mina Ordrar
           </button>
         </div>
       ) : (
@@ -99,8 +99,8 @@ const CheckoutPage = () => {
               <label>Fullständigt namn</label>
               <input
                 type="text"
-                name="fullName"
-                value={address.fullName}
+                name="fullname"
+                value={address.fullname}
                 onChange={handleChange}
                 placeholder="Förnamn Efternamn"
               />
@@ -175,7 +175,7 @@ const CheckoutPage = () => {
               <h3>Produkter i varukorg</h3>
               <ul style={{ listStyle: 'disc', paddingLeft: '20px' }}>
                 {cartItems.map(item => (
-                  <li key={item.id}>{item.title} × {item.quantity}</li>
+                  <li key={item.id}>{item.artist} - {item.title}  {item.quantity} st</li>
                 ))}
               </ul>
             </div>

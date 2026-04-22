@@ -36,6 +36,9 @@ export const apiService = {
   
   deleteOrder: (id) => axios.delete(`${API_BASE}/orders/${id}`),
 
+
+    
+
   // Auth
   ///login: (email, password) => axios.post(`${API_BASE}/auth/login`, { email, password }),
   

@@ -2,14 +2,12 @@ import React, { useEffect, useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 import { apiService } from '../services/api';
-import ProductCard from '../components/ProductCard';
 
 const AdminPage = () => {
   const { user, isAdmin } = useContext(AuthContext);
   const navigate = useNavigate();
   const [activeTab, setActiveTab] = useState('orders');
   const [orders, setOrders] = useState([]);
-  const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
   const [orderStatus, setOrderStatus] = useState('pending');
@@ -29,11 +27,6 @@ const AdminPage = () => {
         const response = await apiService.getOrders(null, orderStatus);
         setOrders(response.data);
       } 
-      else 
-      {
-        const response = await apiService.getProducts();
-        setProducts(response.data);
-      }
     } catch (err) {
       setError('Kunde inte hämta data');
       console.error(err);
@@ -51,31 +44,19 @@ const AdminPage = () => {
     }
   };
 
-  const handleDeleteOrder = async (orderId) => {
-    if (window.confirm('Är du säker?')) {
-      try {
-        await apiService.deleteOrder(orderId);
-        fetchData();
-      } catch (err) {
-        alert('Kunde inte ta bort order');
-      }
-    }
-  };
 
   const handleAdmin = () => {
     navigate(`/admin/registerAdmin`);
   };
 
-  const handleDeleteProduct = async (productId) => {
-    if (window.confirm('Är du säker?')) {
-      try {
-        await apiService.deleteProduct(productId);
-        fetchData();
-      } catch (err) {
-        alert('Kunde inte ta bort produkt');
-      }
-    }
-  };
+  const handleAddProduct = () => {
+     navigate(`/admin/addProduct`);
+  }
+
+   const handleProducts = () => {
+     navigate(`/admin/products`);
+  }
+
 
 
   return (
@@ -84,23 +65,16 @@ const AdminPage = () => {
 
       <div style={{ display: 'flex', gap: '10px', marginBottom: '30px' }}>
         <button 
-          className={activeTab === 'orders' ? 'primary' : 'secondary'}
+          className={activeTab === 'orders' ? 'primary blue' : 'secondary'}
           onClick={() => setActiveTab('orders')}
         >
           Ordrar
         </button>
-        <button 
-          className={activeTab === 'products' ? 'primary' : 'secondary'}
-          onClick={() => setActiveTab('products')}
-        >
-          Produkter
-        </button>
-        <button 
-          className={activeTab === 'add' ? 'primary' : 'secondary'}
-          onClick={() => setActiveTab('add')}
-        >
-          Lägg till produkt
-        </button>
+
+        <button className="secondary" onClick={ handleProducts}>Produkter</button>
+
+        <button className="secondary" onClick={ handleAddProduct}>Lägg till produkt</button>
+       
         <button className="secondary" onClick={handleAdmin}>Registrera admin</button>
       </div>
 
@@ -111,13 +85,13 @@ const AdminPage = () => {
         <div>
           <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
             <button 
-              className={orderStatus === 'pending' ? 'primary' : 'secondary'}
+              className={orderStatus === 'pending' ? 'primary blue' : 'secondary'}
               onClick={() => setOrderStatus('pending')}
             >
               Väntande
             </button>
             <button 
-              className={orderStatus === 'shipped' ? 'primary' : 'secondary'}
+              className={orderStatus === 'shipped' ? 'primary blue' : 'secondary'}
               onClick={() => setOrderStatus('shipped')}
             >
               Skickade
@@ -172,38 +146,19 @@ const AdminPage = () => {
           )}
         </div>
       )}
-
-      {/* Products Tab */}
-      {activeTab === 'products' && (
-        <div>
-          {loading ? (
-            <div className="loading">Läser in produkter...</div>
-          ) : (
-            <div className="grid grid-4">
-              {products.map(product => (
-                <ProductCard 
-                  key={product.id} 
-                  product={product} 
-                  onDelete={handleDeleteProduct}
-                  isAdmin={true}
-                />
-              ))}
-            </div>
-          )}
-        </div>
-      )}
-
-      {/* Add Product Tab */}
-      {activeTab === 'add' && (
-        <AddProductForm onSuccess={() => {
-          // alert("Skivan har registrerats.");
-          document.getElementById('success-message').innerHTML = 'Skivan har registrerats.';
-        }} />
-      )}
     </div>
   );
 };
 
+      {/* Add Product Tab */}
+      /**
+      {activeTab === 'add' && (
+        <AddProductForm onSuccess={() => {
+          document.getElementById('success-message').innerHTML = 'Skivan har registrerats.';
+        }} />
+      )}
+       */
+/**
 const AddProductForm = ({ onSuccess }) => {
   const [formData, setFormData] = useState({
     artist: '',
@@ -212,6 +167,7 @@ const AddProductForm = ({ onSuccess }) => {
     subcategory: 'LP-skivor',
     price: '',
     description: '',
+    releaseYear: '',
     stock: '',
     image: ''
   });
@@ -334,6 +290,17 @@ const AddProductForm = ({ onSuccess }) => {
         </div>
 
         <div className="form-group">
+          <label>Utgivningsår</label>
+          <input
+            type="number"
+            name="releaseYear"
+            value={formData.releaseYear}
+            onChange={handleChange}
+            required
+          />
+        </div>
+
+        <div className="form-group">
           <label>Lager</label>
           <input
             type="number"
@@ -354,7 +321,7 @@ const AddProductForm = ({ onSuccess }) => {
           />
         </div>
 
-        <button type="submit" className="primary" disabled={loading} style={{ width: '100%' }}>
+        <button type="submit" className="primary blue" disabled={loading} style={{ width: '100%' }}>
           {loading ? 'Skapar...' : 'Lägg till produkt'}
         </button>
       </form>
@@ -363,5 +330,5 @@ const AddProductForm = ({ onSuccess }) => {
     </div>
   );
 };
-
+ */
 export default AdminPage;

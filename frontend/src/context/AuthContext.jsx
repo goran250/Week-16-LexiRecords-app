@@ -43,10 +43,6 @@ export const AuthProvider = ({ children }) => {
     } catch (error) {
       throw error.response?.data?.error || 'Registrering misslyckades';
     }
-    finally {
-      
-      setLoading(false);
-    }
   }, []);
 
   const logout = useCallback(() => {

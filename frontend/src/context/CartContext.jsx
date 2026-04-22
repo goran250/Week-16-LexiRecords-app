@@ -1,4 +1,5 @@
 import React, { createContext, useState, useCallback } from 'react';
+import { apiService } from '../services/api';
 
 export const CartContext = createContext();
 
@@ -22,6 +23,7 @@ export const CartProvider = ({ children }) => {
       }
       
       localStorage.setItem('cart', JSON.stringify(newItems));
+      
       return newItems;
     });
   }, []);

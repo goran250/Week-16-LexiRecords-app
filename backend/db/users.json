@@ -21,42 +21,6 @@
     "createdAt": "2026-04-19T23:05:41.619Z"
   },
   {
-    "id": "34bf1eba-c072-4fa7-bf7d-eee0d9342e04",
-    "fullname": "GR",
-    "email": "goran.rosenberg1@tomelilla.nu",
-    "password": "$2a$10$wbbsMA6oGmsAP7bf2FoAs.im5Rj51BD6BGl4IvUwSaZfd5cFIVxpi",
-    "street": "",
-    "zipCode": "",
-    "city": "Tomelilla",
-    "country": "",
-    "role": "customer",
-    "createdAt": "2026-04-20T19:19:03.260Z"
-  },
-  {
-    "id": "e0bc3128-023b-4d7f-a2cd-9f0c6689c617",
-    "fullname": "GR",
-    "email": "goran.rosenberg2@gmail.com",
-    "password": "$2a$10$3LCxOlX27WloYs5iaoIWLu/MEGROhVqRnFyvoZP.2zutWGB2Va/oO",
-    "street": "",
-    "zipCode": "",
-    "city": "",
-    "country": "",
-    "role": "customer",
-    "createdAt": "2026-04-20T21:52:44.978Z"
-  },
-  {
-    "id": "cdf676ef-2660-4555-94d8-a5a57746d287",
-    "fullname": "GR",
-    "email": "goran.rosenberg3@gmail.com",
-    "password": "$2a$10$uUxg5kbsUZ7x6rwrMgWWducfMmXSh9E04/II/uhaYVN225BYEpwkK",
-    "street": "",
-    "zipCode": "",
-    "city": "",
-    "country": "",
-    "role": "customer",
-    "createdAt": "2026-04-20T21:57:31.247Z"
-  },
-  {
     "id": "43bbf6aa-db75-462e-83c2-4c99681f89fe",
     "fullname": "Ömer",
     "email": "omer@lexicon.se",
@@ -65,59 +29,15 @@
     "createdAt": "2026-04-20T22:49:59.512Z"
   },
   {
-    "id": "31145296-bbc2-4a79-a65a-896daed6079f",
-    "fullname": "Pelle Persson",
-    "email": "pelle.rosenberg@tomelilla.nu",
-    "password": "$2a$10$zQDxQJBqvgP.pUE4WCfr7.r7Pu5Q2JxApBM.Zh5UCV2Vj7zzPrruC",
-    "role": "admin",
-    "createdAt": "2026-04-21T09:22:25.437Z"
-  },
-  {
-    "id": "339f8b71-5ef7-4357-95a8-689ddb81a2f0",
-    "fullname": "Karl Svensson",
-    "email": "karl.rosenberg@tomelilla.nu",
-    "password": "$2a$10$wk5fZsYluVWmfwC.SZJFi.Abh0TUaP0Y8vFy7fSTbiv8FuQRLSFVu",
-    "role": "admin",
-    "createdAt": "2026-04-21T09:24:50.679Z"
-  },
-  {
-    "id": "4e881480-b29f-4040-9a41-2996088527ac",
-    "fullname": "päron",
-    "email": "peron.rosenberg@tomelilla.nu",
-    "password": "$2a$10$JinJ0diYeG.jEllU2e9yeO2feJh54MhWdfoyGKdiAYgY9ByrprxE2",
-    "role": "admin",
-    "createdAt": "2026-04-21T09:27:06.922Z"
-  },
-  {
-    "id": "03390dc9-2f62-4d57-a748-cf1b2995905c",
-    "fullname": "Per",
-    "email": "per.rosenberg@tomelilla.nu",
-    "password": "$2a$10$Aztd6MpWv3r2pG2IaY8Om.YMdgXh/jkvhfiBYdA7aRhuMO3Xi9SNy",
-    "role": "admin",
-    "createdAt": "2026-04-21T12:34:15.677Z"
-  },
-  {
-    "id": "6f6d7fa6-c8e5-4dca-8afe-e6e0cc689357",
-    "fullname": "guran",
-    "email": "guran.rosenberg@tomelilla.nu",
-    "password": "$2a$10$4yfOTZp89XDQoICu94RqeuM8GeOi6vCyUkypfl2HrKrJFqRJMztxi",
-    "role": "admin",
-    "createdAt": "2026-04-21T12:36:39.064Z"
-  },
-  {
-    "id": "f032e381-54bc-4ad9-a169-3977cdab7d07",
-    "fullname": "gorros",
-    "email": "gorros.rosenberg@tomelilla.nu",
-    "password": "$2a$10$WhMkwthfrLy1e3/f09g.jukO9lF2h81HGoR4LWXHpWFi/3uBUsBBC",
-    "role": "admin",
-    "createdAt": "2026-04-21T12:37:44.952Z"
-  },
-  {
-    "id": "f8acc760-47b5-4874-bf2c-2853cf24e3cb",
-    "fullname": "gör",
-    "email": "gor.rosenberg@tomelilla.nu",
-    "password": "$2a$10$aoLWP2PpliBIaJwg847ct.0qnfD3qJRtbhit643q9SnQiHf20CmGm",
-    "role": "admin",
-    "createdAt": "2026-04-21T12:39:20.736Z"
+    "id": "ee271581-fa38-4a49-9bba-ef95192e3431",
+    "fullname": "GR",
+    "email": "goran.rosenberg1@gmail.com",
+    "password": "$2a$10$d8gLhawjUbgQx.bLczcfROPXpRj2l3A08.gHQapzMliwsZYV4GO7i",
+    "street": "",
+    "zipCode": "",
+    "city": "",
+    "country": "",
+    "role": "customer",
+    "createdAt": "2026-04-21T23:40:47.715Z"
   }
 ]
