@@ -45,7 +45,6 @@ const ProductsPage = () => {
     }
   };
 
-
   return (
     <div className="container">
       <h1 className="page-title">Admin Panel</h1>
@@ -75,4 +74,5 @@ const ProductsPage = () => {
     </div>
   );
 };
+
 export default ProductsPage;
