@@ -1,6 +1,7 @@
 [
   {
     "id": "ae564e5d-d25d-489f-b287-dc21ae7756cc",
+    "fullname": "Göran Rosenberg",
     "email": "goran.rosenberg@tomelilla.nu",
     "password": "$2a$10$IEaqLjcMEgbmwBbs.0duJOLMzkNZQu9OvuXOuO5L2lybntrzT2svS",
     "role": "admin",
@@ -8,17 +9,11 @@
   },
   {
     "id": "3057f975-8c5d-4a13-a671-e59059bb7f9f",
+    "fullname": "GR",
     "email": "goran.ros@gmail.com",
     "password": "$2a$10$PVoelKs61PldmegwlArKWuwkh7si/sTSFQ4IpsMMz4uvwBG8pmg6m",
-    "role": "customer",
+    "role": "admin",
     "createdAt": "2026-04-19T15:03:08.880Z"
-  },
-  {
-    "id": "331e7f7b-35b6-4540-97ad-1c9966070891",
-    "email": "goran.rosenberg@gmail.com",
-    "password": "$2a$10$F7dXKJaWIK3dW7QBmteKV.DM/sJbR1uopzMwwOneTHWRf4rCXtOg6",
-    "role": "customer",
-    "createdAt": "2026-04-19T23:05:41.619Z"
   },
   {
     "id": "43bbf6aa-db75-462e-83c2-4c99681f89fe",
@@ -33,11 +28,43 @@
     "fullname": "GR",
     "email": "goran.rosenberg1@gmail.com",
     "password": "$2a$10$d8gLhawjUbgQx.bLczcfROPXpRj2l3A08.gHQapzMliwsZYV4GO7i",
+    "street": "Västergatan 44A",
+    "zipCode": "273 34",
+    "city": "Tomelilla",
+    "country": "Sveriges",
+    "role": "customer",
+    "createdAt": "2026-04-21T23:40:47.715Z"
+  },
+  {
+    "id": "68fbf118-6f27-4385-9338-ccd1d0d18860",
+    "fullname": "Maria Överling",
+    "email": "maria@overling.se",
+    "password": "$2a$10$GfWTsrbH7GbxiOcoIIczjuPkcBSbj/Oo4ElQ59JUolT7LWW4fBwdC",
+    "role": "admin",
+    "createdAt": "2026-04-22T19:44:43.924Z"
+  },
+  {
+    "id": "6b51e334-5e76-404a-b769-f0f6dcc80ddc",
+    "fullname": "Göran Rosenberg",
+    "email": "goran.rosenberg2@gmail.com",
+    "password": "$2a$10$wtf0yum9muCkPdHZwdT1k.Of/fAd3cLWLj9FCIsFIUcMCVq3PAfOy",
     "street": "",
     "zipCode": "",
     "city": "",
     "country": "",
     "role": "customer",
-    "createdAt": "2026-04-21T23:40:47.715Z"
+    "createdAt": "2026-04-22T21:00:38.819Z"
+  },
+  {
+    "id": "646990be-7a29-45ff-ab00-9e7f738b09a9",
+    "fullname": "GR",
+    "email": "goran.rosenberg4@gmail.com",
+    "password": "$2a$10$/viZFWGG5KvPYSNwtTyli.iT9TjPDNSNo2.OB2O2b.Nw9Rnbq7FOG",
+    "street": "",
+    "zipCode": "",
+    "city": "",
+    "country": "",
+    "role": "customer",
+    "createdAt": "2026-04-22T21:46:01.608Z"
   }
 ]

@@ -13,7 +13,12 @@ const ProductCard = ({ product, onDelete, isAdmin }) => {
 
   const openCustomPopup = (message) =>  { 
       document.getElementById("popup-message").innerHTML = message;
-      document.getElementById("custom-popup").style.display = "block";
+      const popup =document.getElementById("custom-popup");
+      popup.style.display = "block";
+
+      setTimeout(function() {
+        popup.style.display = 'none';
+      }, 3000); 
   }
 
   return (
@@ -23,7 +28,7 @@ const ProductCard = ({ product, onDelete, isAdmin }) => {
       <p className="product-description">{product.description}</p>
       <div className="product-price">{product.price} kr</div>
       <div className="product-stock">
-        Lager: {product.stock > 0 ? product.stock : 'Slut'}
+        Lager: {product.stock > 0 ? product.stock : (<strong>Slut</strong>)}
       </div>
       
       <div className="product-actions">
@@ -33,7 +38,11 @@ const ProductCard = ({ product, onDelete, isAdmin }) => {
             <button className="danger" onClick={() => onDelete(product.id)}>Ta bort</button>
           </>
         ) : (
-          <button className="primary blue" onClick={() => {addToCart(product); openCustomPopup("Skivan har placerats i varukorgen!")}} disabled={product.stock === 0}>
+          <button
+            className = { product.stock > 0 ? ( "primary blue") : ("primary grey-disabled")} 
+            onClick = {() => {addToCart(product); 
+            openCustomPopup("Skivan har placerats i varukorgen!")}} 
+            disabled = {product.stock === 0}>
             Lägg i varukorg
           </button>
         )}

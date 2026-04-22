@@ -8,7 +8,7 @@ import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import ShopPage from './pages/ShopPage';
 import LoginPage from './pages/LoginPage';
-import RegisterPage from './pages/RegisterPage';
+import RegisterUserPage from './pages/RegisterUserPage';
 import CartPage from './pages/CartPage';
 import CheckoutPage from './pages/CheckoutPage';
 import OrderDetailPage from './pages/OrderDetailPage';
@@ -33,17 +33,17 @@ function App() {
                 <Route path="/" element={<HomePage />} />
                 <Route path="/shop" element={<ShopPage />} />
                 <Route path="/login" element={<LoginPage />} />
-                <Route path="/register" element={<RegisterPage />} />
+                <Route path="/registerUser" element={<RegisterUserPage />} />
                 <Route path="/cart" element={<CartPage />} />
                 <Route path="/checkout" element={<CheckoutPage />} />
                 <Route path="/order/:orderId" element={<OrderDetailPage />} />
                 <Route path="/orders" element={<CustomerOrdersPage />} />
                 <Route path="/admin" element={<AdminPage />} />
-                <Route path="/admin/products" element={<ProductsPage />} />
-                <Route path="/admin/registerAdmin" element={<RegisterAdminPage />} />
+                <Route path="/products" element={<ProductsPage />} />
                 <Route path="/admin/editProduct/:productId" element={<EditProductPage />} />
                 <Route path="/admin/addProduct" element={<AddProductPage />} />
-                <Route path="*" element={<Navigate to="/" />} />
+                <Route path="/admin/registerAdmin" element={<RegisterAdminPage />} />
+                <Route path="*" element={<Navigate to="/" />} />                
               </Routes>
             </main>
             <Footer />

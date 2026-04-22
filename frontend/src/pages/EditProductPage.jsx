@@ -67,10 +67,12 @@ const EditProductPage = () => {
 
     try {
       await apiService.updateProduct(productId, formData);
-      navigate('/admin/products');
-    } catch (err) {
+    } 
+    catch (err) {
       setError('Kunde inte uppdatera produkten');
-    } finally {
+    } 
+    finally {
+      document.getElementById('success-message').style.display = "block";
       setSaving(false);
     }
   };
@@ -84,9 +86,8 @@ const EditProductPage = () => {
 
       <div style={{ display: 'flex', gap: '10px', marginBottom: '30px' }}>
         <button className="secondary" onClick={() => navigate('/admin')}>Ordrar</button>
-
-        <button className="secondary" onClick={() => navigate('/admin/products')}>Produkter</button>
-       
+        <button className="secondary" onClick={() => navigate('/products')}>Produkter</button>
+        <button className="secondary" onClick={() => navigate(`/admin/addProduct`)}>Lägg till produkt</button>
         <button className="secondary" onClick={() => navigate('/admin/registerAdmin')}>Registrera admin</button>
       </div>
 
@@ -132,11 +133,7 @@ const EditProductPage = () => {
 
           <div className="form-group">
             <label>Underkategori</label>
-            <select 
-              name="subcategory" 
-              value={formData.subcategory}
-              onChange={handleChange}
-            >
+            <select name="subcategory" value={formData.subcategory} onChange={handleChange}>
               {categories[formData.category].map(sub => (
                 <option key={sub} value={sub}>{sub}</option>
               ))}
@@ -161,7 +158,7 @@ const EditProductPage = () => {
 
           <div className="form-group">
             <label>Utgivningsår</label>
-            <input type="number" name="releaseYear" value={formData.releaseYear} onChange={handleChange} required />
+            <input type="number" name="releaseYear" value={formData.releaseYear} onChange={handleChange} />
           </div>
 
           <div className="form-group">
@@ -176,12 +173,14 @@ const EditProductPage = () => {
 
           <div className="form-actions">
             <button type="submit" className="primary blue" disabled={saving}>{saving ? 'Sparar...' : 'Spara ändringar'}</button>
-            <button type="button" className="secondary" onClick={() => navigate('/admin/products')}>
+            <button type="button" className="secondary" onClick={() => navigate('/products')}>
               Avbryt
             </button>
           </div>
         </form>
       </div>
+
+      <div id="success-message" style={{ maxWidth: '500px' }}>Produkten har sparats.</div>
     </div>
   );
 };

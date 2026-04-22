@@ -31,6 +31,14 @@ a {
   color: inherit;
 }
 
+.displayNone {
+  display: none;
+}
+
+.displayBlock { 
+  display: block; 
+}
+
 button {
   cursor: pointer;
   border: none;
@@ -82,6 +90,20 @@ button.green {
 
 button.blue {
   background: linear-gradient(135deg, var(--primary-blue-button) 0%, var(--light-blue) 100%);
+}
+
+button.grey-disabled {
+   background: linear-gradient(135deg, #7d8286 0%, #cacbcd 100%);
+   cursor: default;
+}
+
+button.grey-disabled:hover {
+  transform: translateY(0);
+  box-shadow: none;
+}
+
+.customerOrdersPage p {
+  margin: 10px 0;
 }
 
 #success-message {
@@ -314,8 +336,23 @@ form h3.h3-tag {
 }
 
 .card:hover {
-  transform: translateY(-4px);
   box-shadow: 0 4px 16px rgba(0, 51, 102, 0.15);
+}
+
+.card .status {
+  display: inline-block;
+  margin-left: 10px;
+  padding: 4px 12px;
+  border-radius: 4px;
+  color: white;
+}
+
+.card .order-info {
+  display: grid;
+  grid-template-columns: 1fr 1fr; 
+  gap: 20px; 
+  margin-bottom: 30px;
+
 }
 
 /* Product card */
@@ -420,10 +457,11 @@ form h3.h3-tag {
   border-radius: 4px;
   cursor: pointer;
   transition: background 0.3s;
+  background: var(--lighter-blue)
 }
 
 .sidebar-item:hover {
-  background: var(--lighter-blue);
+  background: #99b0ca;
 }
 
 .sidebar-item.active {
@@ -536,11 +574,7 @@ tr:hover {
 .auth-link a:hover {
   text-decoration: underline;
 }
-@media (max-width: 890px) {
-  .footer .special {
-    padding-left: 0;
-  }
-}
+
 /* Responsive */
 @media (max-width: 950px) {
   .header-content {
@@ -560,6 +594,16 @@ tr:hover {
 
   .auth-container {
     margin: 20px;
+  }
+}
+
+@media (max-width: 890px) {
+  .footer .special {
+    padding-left: 0;
+  }
+
+  .card .order-info {
+    display: block;
   }
 }
 

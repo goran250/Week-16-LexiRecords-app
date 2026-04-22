@@ -67,7 +67,7 @@ const Header = () => {
                 <button className="primary green" style={{ padding: '6px 12px', fontSize: '12px' }} onClick={() => navigate('/login')}>
                   Logga in
                 </button>
-                <button className="secondary" style={{ padding: '6px 12px', fontSize: '12px' }} onClick={() => navigate('/register')}>
+                <button className="secondary" style={{ padding: '6px 12px', fontSize: '12px' }} onClick={() => navigate('/registerUser')}>
                   Registrera
                 </button>
               </>

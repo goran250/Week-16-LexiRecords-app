@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { apiService } from '../services/api';
 import { AuthContext } from '../context/AuthContext';
 
+
 const OrderDetailPage = () => {
   const { orderId } = useParams();
   const { user } = useContext(AuthContext);
@@ -10,25 +11,42 @@ const OrderDetailPage = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState('');
 
+  const handleUpdateOrderStatus = async (orderId, newStatus) => {
+    try {
+      await apiService.updateOrder(orderId, { status: newStatus });
+      fetchOrder();
+    } 
+    catch (err) {
+      alert('Kunde inte uppdatera order');
+    }
+  };
+
+
   useEffect(() => {
     fetchOrder();
   }, [orderId]);
+
 
   const fetchOrder = async () => {
     try {
       const response = await apiService.getOrder(orderId);
       setOrder(response.data);
-    } catch (err) {
+    } 
+    catch (err) {
       setError('Kunde inte hämta order');
       console.error(err);
-    } finally {
+    } 
+    finally {
       setLoading(false);
     }
   };
 
-  if (loading) return <div className="loading">Läser in order...</div>;
-  if (error) return <div className="alert error">{error}</div>;
-  if (!order) return <div className="empty-state"><h3>Order inte hittad</h3></div>;
+  if (loading) 
+    return <div className="loading">Läser in order...</div>;
+  if (error) 
+    return <div className="alert error">{error}</div>;
+  if (!order) 
+    return <div className="empty-state"><h3>Order inte hittad</h3></div>;
 
   return (
     <div className="container">
@@ -37,26 +55,31 @@ const OrderDetailPage = () => {
       <div className="card">
         <h2 style={{ marginBottom: '20px' }}>Orderdetaljer</h2>
         
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '20px', marginBottom: '30px' }}>
-          <div>
+        <div className="order-info">
+          <div style={{ marginTop: '20px' }}>
             <p><strong>Order ID:</strong> {order.id}</p>
-            <p><strong>Status:</strong> 
-              <span style={{
-                display: 'inline-block',
-                marginLeft: '10px',
-                padding: '4px 12px',
-                borderRadius: '4px',
-                backgroundColor: order.status === 'pending' ? '#ffc107' : '#28a745',
-                color: 'white'
-              }}>
+            <p><strong>Orderstatus:</strong> 
+              <span className="status" style={{ backgroundColor: order.status === 'pending' ? '#ffc107' : '#28a745' }}>
                 {order.status === 'pending' ? 'Väntande' : order.status === 'shipped' ? 'Skickad' : order.status}
               </span>
             </p>
             <p><strong>Datum:</strong> {new Date(order.createdAt).toLocaleDateString('sv-SE')}</p>
+            <h3 style={{marginTop: '10px', marginBottom: '5px'}}>Leveransadress</h3>
+            <p>{ order.userName }</p>
+            <p>{ order.street }</p>
+            <p>{ order.zipCode } { order.city }</p>
+            <p>{ order.country }</p>
           </div>
-          <div>
+          <div style={{ marginTop: '20px' }}>
             <p><strong>Totalt:</strong> {order.totalPrice} kr</p>
             <p><strong>Antal produkter:</strong> {order.items.length}</p>
+            <div className={ user.role == "customer" ? ("displayNone") : ("displayBlock")}>
+              <p style={{ marginTop: "20px", marginBottom: "8px"}}><strong>Ändra orderstatus</strong></p>
+              <select id="select-order-status" value={order.status} onChange={(e) => handleUpdateOrderStatus(order.id, e.target.value)} >
+                  <option value="pending">Väntande</option>
+                  <option value="shipped">Skickad</option>
+              </select>
+            </div>
           </div>
         </div>
 
@@ -64,7 +87,8 @@ const OrderDetailPage = () => {
         <table>
           <thead>
             <tr>
-              <th>Produkt</th>
+              <th>Artist/Grupp</th>
+              <th>Titel</th>
               <th>Pris</th>
               <th>Mängd</th>
               <th>Totalt</th>
@@ -73,6 +97,7 @@ const OrderDetailPage = () => {
           <tbody>
             {order.items.map(item => (
               <tr key={item.id}>
+                <td>{item.artist}</td>
                 <td>{item.title}</td>
                 <td>{item.price} kr</td>
                 <td>{item.quantity}</td>

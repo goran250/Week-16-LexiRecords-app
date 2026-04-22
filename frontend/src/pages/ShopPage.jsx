@@ -24,10 +24,12 @@ const ShopPage = () => {
       const response = await apiService.getProducts(selectedCategory, selectedSubcategory);
       setProducts(response.data);
       setError('');
-    } catch (err) {
+    } 
+    catch (err) {
       setError('Kunde inte hämta produkter');
       console.error(err);
-    } finally {
+    } 
+    finally {
       setLoading(false);
     }
   };
@@ -42,8 +44,7 @@ const ShopPage = () => {
           <div className="sidebar-title">Kategorier</div>
           {Object.keys(categories).map(category => (
             <div key={category}>
-              <div
-                className={`sidebar-item ${selectedCategory === category ? 'active' : ''}`}
+              <div className={`sidebar-item ${selectedCategory === category ? 'active' : ''}`}
                 onClick={() => {
                   setSelectedCategory(category);
                   setSelectedSubcategory(null);

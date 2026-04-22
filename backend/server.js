@@ -43,42 +43,50 @@ const initializeDatabase = () => {
     const products = [
       {
         id: uuidv4(),
-        title: 'The Beatles - Abbey Road',
+        artist: 'The Beatles',
+        title: 'Abbey Road',
         category: 'Nya skivor',
         subcategory: 'LP-skivor',
         price: 299,
-        image: 'https://via.placeholder.com/200x200?text=Abbey+Road',
+        image: '/src/images/beatles-abbey-road-LP.jpg',
         description: 'Klassisk album från 1969',
+        releaseYear: 1969,
         stock: 10
       },
       {
         id: uuidv4(),
-        title: 'Pink Floyd - The Dark Side of the Moon',
+        artist: 'Pink Floyd',
+        title: 'The dark dide of the moon',
         category: 'Nya skivor',
         subcategory: 'LP-skivor',
         price: 349,
-        image: 'https://via.placeholder.com/200x200?text=Dark+Side',
+        image: './src/images/pink-floyd-dark-side-of-the-moon-LP.jpg',
         description: 'Ikoniskt album från 1973',
+        releaseYear: 1973,
         stock: 15
       },
       {
         id: uuidv4(),
-        title: 'Queen - Bohemian Rhapsody',
+        artist: 'Queen',
+        title: 'Bohemian Rhapsody',
         category: 'Nya skivor',
         subcategory: 'Singlar',
         price: 99,
-        image: 'https://via.placeholder.com/200x200?text=Bohemian',
+        image: './src/images/queen-bohemian-rhapsody-LP.jpg',
         description: 'Klassisk singel från 1975',
+        releaseYear: 1975,
         stock: 20
       },
       {
         id: uuidv4(),
-        title: 'David Bowie - Space Oddity',
+        artist: 'David Bowie',
+        title: 'Space Oddity',
         category: 'Begagnade skivor',
         subcategory: 'Singlar',
         price: 79,
-        image: 'https://via.placeholder.com/200x200?text=Space+Oddity',
+        image: './src/images/David Bowie - Space Oddity.jpg',
         description: 'Begagnad singel från 1969',
+        releaseYear: 1969,
         stock: 5
       }
     ];
@@ -103,7 +111,33 @@ const writeJSON = (filePath, data) => {
 
 // Routes
 // AUTH ROUTES
-app.post('/api/auth/register', (req, res) => {
+app.post('/api/auth/login', (req, res) => {
+  const { email, password } = req.body;
+
+  if (!email || !password) {
+    return res.status(400).json({ error: 'Email och lösenord krävs' });
+  }
+
+  const users = readJSON(usersFile);
+  const user = users.find(u => u.email === email);
+
+  if (!user || !bcrypt.compareSync(password, user.password)) {
+    return res.status(401).json({ error: 'Ogiltiga inloggningsuppgifter' });
+  }
+
+  res.json({
+    id: user.id,
+    email: user.email,
+    fullname: user.fullname,
+    street: user.street,
+    zipCode: user.zipCode,
+    city: user.city,
+    country: user.country,
+    role: user.role
+  });
+});
+
+app.post('/api/auth/registerUser', (req, res) => {
   const { fullname, email, password, street, zipCode, city, country } = req.body;
 
   if (!email || !password) {
@@ -133,8 +167,6 @@ app.post('/api/auth/register', (req, res) => {
   users.push(newUser);
   writeJSON(usersFile, users);
 
-  console.log("server.js");
-
   res.status(201).json({
     id: newUser.id,
     fullname: newUser.fullname, 
@@ -145,27 +177,6 @@ app.post('/api/auth/register', (req, res) => {
     country: newUser.country,
     role: newUser.role,
     createdAt: newUser.createdAt
-  });
-});
-
-app.post('/api/auth/login', (req, res) => {
-  const { email, password } = req.body;
-
-  if (!email || !password) {
-    return res.status(400).json({ error: 'Email och lösenord krävs' });
-  }
-
-  const users = readJSON(usersFile);
-  const user = users.find(u => u.email === email);
-
-  if (!user || !bcrypt.compareSync(password, user.password)) {
-    return res.status(401).json({ error: 'Ogiltiga inloggningsuppgifter' });
-  }
-
-  res.json({
-    id: user.id,
-    email: user.email,
-    role: user.role
   });
 });
 
@@ -228,7 +239,7 @@ app.get('/api/products/:id', (req, res) => {
 });
 
 app.post('/api/products', (req, res) => {
-  const { title, category, subcategory, price, description, stock, image } = req.body;
+  const { artist, title, category, subcategory, price, description, releaseYear, stock, image } = req.body;
 
   if (!title || !category || !subcategory || !price) {
     return res.status(400).json({ error: 'Obligatoriska fält saknas' });
@@ -237,13 +248,15 @@ app.post('/api/products', (req, res) => {
   const products = readJSON(productsFile);
   const newProduct = {
     id: uuidv4(),
+    artist,
     title,
     category,
     subcategory,
     price: parseFloat(price),
     description: description || '',
+    releaseYear: parseInt(releaseYear) || '',
     stock: parseInt(stock) || 0,
-    image: image || 'https://via.placeholder.com/200x200?text=Placeholder'
+    image: image || ''
   };
 
   products.push(newProduct);
@@ -253,7 +266,7 @@ app.post('/api/products', (req, res) => {
 });
 
 app.put('/api/products/:id', (req, res) => {
-  const { title, category, subcategory, price, description, stock, image } = req.body;
+  const { artist, title, category, subcategory, price, description, releaseYear, stock, image } = req.body;
   const products = readJSON(productsFile);
   const index = products.findIndex(p => p.id === req.params.id);
 
@@ -263,11 +276,13 @@ app.put('/api/products/:id', (req, res) => {
 
   products[index] = {
     ...products[index],
+    artist: artist || products[index].artist,
     title: title || products[index].title,
     category: category || products[index].category,
     subcategory: subcategory || products[index].subcategory,
     price: price !== undefined ? parseFloat(price) : products[index].price,
     description: description || products[index].description,
+    releaseYear: releaseYear || products[index].releaseYear,
     stock: stock !== undefined ? parseInt(stock) : products[index].stock,
     image: image || products[index].image
   };
@@ -292,7 +307,7 @@ app.delete('/api/products/:id', (req, res) => {
 
 // ORDERS ROUTES
 app.post('/api/orders', (req, res) => {
-  const { userId, items, totalPrice } = req.body;
+  const { userId, userName, street, zipCode, city, country, items, totalPrice } = req.body;
 
   if (!userId || !items || !totalPrice) {
     return res.status(400).json({ error: 'Obligatoriska fält saknas' });
@@ -303,6 +318,10 @@ app.post('/api/orders', (req, res) => {
     id: uuidv4(),
     userId,
     userName,
+    street,
+    zipCode,
+    city,
+    country,
     items,
     totalPrice: parseFloat(totalPrice),
     status: 'pending',

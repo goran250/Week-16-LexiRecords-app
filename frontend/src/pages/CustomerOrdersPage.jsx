@@ -32,24 +32,24 @@ const CustomerOrdersPage = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container" style={{ maxWidth : '600px'}}>
       <h1 className="page-title">Mina Ordrar</h1>
 
       <div style={{ display: 'flex', gap: '10px', marginBottom: '20px' }}>
         <button 
-          className={activeTab === 'pending' ? 'primary' : 'secondary'}
+          className={activeTab === 'pending' ? 'primary blue' : 'secondary'}
           onClick={() => setActiveTab('pending')}
         >
           Pågående
         </button>
         <button 
-          className={activeTab === 'shipped' ? 'primary' : 'secondary'}
+          className={activeTab === 'shipped' ? 'primary blue' : 'secondary'}
           onClick={() => setActiveTab('shipped')}
         >
           Skickade
         </button>
         <button 
-          className={activeTab === 'all' ? 'primary' : 'secondary'}
+          className={activeTab === 'all' ? 'primary blue' : 'secondary'}
           onClick={() => setActiveTab('all')}
         >
           Alla
@@ -64,14 +64,14 @@ const CustomerOrdersPage = () => {
         <div className="empty-state">
           <h3>Inga ordrar hittade</h3>
           <p>Du har inga {activeTab === 'pending' ? 'pågående' : activeTab === 'shipped' ? 'skickade' : ''} ordrar ännu</p>
-          <button className="primary" onClick={() => navigate('/shop')}>
+          <button className="primary blue" onClick={() => navigate('/shop')} style={{ marginTop: '20px'}}>
             Börja handla
           </button>
         </div>
       ) : (
         <div className="grid grid-2">
           {orders.map(order => (
-            <div key={order.id} className="card">
+            <div key={order.id} className="card customerOrdersPage">
               <h3>Order #{order.id.substring(0, 8)}</h3>
               <p>
                 <strong>Status:</strong>{' '}
@@ -88,7 +88,7 @@ const CustomerOrdersPage = () => {
               <p><strong>Datum:</strong> {new Date(order.createdAt).toLocaleDateString('sv-SE')}</p>
               <p><strong>Totalt:</strong> {order.totalPrice} kr</p>
               <p><strong>Antal produkter:</strong> {order.items.length}</p>
-              <button className="primary" onClick={() => navigate(`/order/${order.id}`)} style={{ width: '100%', marginTop: '15px' }}>
+              <button className="primary blue" onClick={() => navigate(`/order/${order.id}`)} style={{ width: '100%', marginTop: '15px' }}>
                 Se detaljer
               </button>
             </div>

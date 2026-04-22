@@ -70,11 +70,11 @@ const AddProductPage = () => {
 
     try {
       await apiService.createProduct(formData);
-      document.getElementById('success-message').style.display = "block";
     } catch (err) {
       setError('Kunde inte skapa produkt');
       console.error(err);
     } finally {
+      document.getElementById('success-message').style.display = "block";
       setLoading(false);
     }
   };
@@ -85,7 +85,7 @@ const AddProductPage = () => {
 
       <div style={{ display: 'flex', gap: '10px', marginBottom: '30px' }}>
         <button className="secondary" onClick={() => navigate('/admin')}>Ordrar</button>
-        <button className="secondary" onClick={() => navigate('/admin/products')}>Produkter</button>       
+        <button className="secondary" onClick={() => navigate('/products')}>Produkter</button>       
         <button className="secondary" onClick={() => navigate('/admin/registerAdmin')}>Registrera admin</button>
       </div>
       
@@ -145,60 +145,32 @@ const AddProductPage = () => {
 
           <div className="form-group">
             <label>Pris (kr)</label>
-            <input
-              type="number"
-              name="price"
-              value={formData.price}
-              onChange={handleChange}
-              required
-            />
+            <input type="number" name="price" value={formData.price} onChange={handleChange} required />
           </div>
 
           <div className="form-group">
             <label>Beskrivning</label>
-            <textarea
-              name="description"
-              value={formData.description}
-              onChange={handleChange}
-              rows="3"
-            />
+            <textarea name="description" value={formData.description} onChange={handleChange} rows="3" />
           </div>
 
           <div className="form-group">
             <label>Utgivningsår</label>
-            <input
-              type="number"
-              name="releaseYear"
-              value={formData.releaseYear}
-              onChange={handleChange}
-              required
-            />
+            <input type="number" name="releaseYear" value={formData.releaseYear}  onChange={handleChange} />
           </div>
 
           <div className="form-group">
             <label>Lager</label>
-            <input
-              type="number"
-              name="stock"
-              value={formData.stock}
-              onChange={handleChange}
-              required
-            />
+            <input type="number" name="stock" value={formData.stock} onChange={handleChange} required />
           </div>
 
           <div className="form-group">
             <label>Bildlänk</label>
-            <input
-              type="text"
-              name="image"
-              value={formData.image}
-              onChange={handleChange}
-            />
+            <input type="text" name="image" value={formData.image} onChange={handleChange} />
           </div>
 
           <div className="form-actions">
             <button type="submit" className="primary blue">Lägg till produkt</button>
-            <button type="button" className="secondary" onClick={() => navigate('/admin/products')}>Avbryt</button>
+            <button type="button" className="secondary" onClick={() => navigate('/products')}>Avbryt</button>
           </div>
         </form>
         <div id="success-message">En ny produkt har lagts till.</div>

@@ -20,9 +20,9 @@ export const AuthProvider = ({ children }) => {
     }
   }, []);
 
-  const register = useCallback(async (fullname, email, password, street, zipCode, city, country) => {
+  const registerUser = useCallback(async (fullname, email, password, street, zipCode, city, country) => {
     try {
-      const response = await axios.post('/api/auth/register', { fullname, email, password, street, zipCode, city, country });
+      const response = await axios.post('/api/auth/registerUser', { fullname, email, password, street, zipCode, city, country });
       setUser(response.data);
       
       localStorage.setItem('user', JSON.stringify(response.data));
@@ -54,7 +54,7 @@ export const AuthProvider = ({ children }) => {
   const isAdmin = user?.role === 'admin';
 
   return (
-    <AuthContext.Provider value={{ user, login, register, registerAdmin, logout, isAuthenticated, isAdmin }}>
+    <AuthContext.Provider value={{ user, login, registerUser, registerAdmin, logout, isAuthenticated, isAdmin }}>
       {children}
     </AuthContext.Provider>
   );

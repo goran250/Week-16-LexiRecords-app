@@ -10,21 +10,21 @@ const CheckoutPage = () => {
   const { cartItems, getTotalPrice, clearCart } = useContext(CartContext);
 
   const [address, setAddress] = useState({
-    fullname: '',
-    street: '',
-    zipCode: '',
-    city: '',
+    fullname: user.fullname,
+    street: user.street,
+    zipCode: user.zipCode,
+    city: user.city,
     country: 'Sverige'
   });
+  
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
-  const [successMessage, setSuccessMessage] = useState('');
   const [createdOrderId, setCreatedOrderId] = useState('');
 
   const orderTotal = getTotalPrice();
   const shippingCost = orderTotal >= 400 ? 0 : 59;
   const finalTotal = orderTotal + shippingCost;
-  const canSend = address.fullname && address.street && address.postalCode && address.city && address.country && cartItems.length > 0;
+  const canSend = address.fullname && address.street && address.zipCode && address.city && address.country && cartItems.length > 0;
 
   useEffect(() => {
     if (!user) {
@@ -32,9 +32,9 @@ const CheckoutPage = () => {
       return;
     }
 
-    if (cartItems.length === 0) {
+    if (cartItems.length === 0 && createdOrderId == '') {
       navigate('/shop');
-    }
+    } 
   }, [user, cartItems, navigate]);
 
   const handleChange = (e) => {
@@ -47,7 +47,7 @@ const CheckoutPage = () => {
     setAddress(prev => ({ ...prev, [name]: value }));
   };
 
-  const handleSendOrder = async () => {
+  const sendOrder = async () => {
     if (!canSend) {
       setError('Fyll i leveransadress innan du skickar ordern.');
       return;
@@ -59,18 +59,22 @@ const CheckoutPage = () => {
     try {
       const response = await apiService.createOrder({
         userId: user.id,
-        userName: address.fullname,
+        userName: user.fullname,
+        street: address.street,
+        zipCode: address.zipCode,
+        city: address.city,
+        country: address.country,
         items: cartItems,
         totalPrice: finalTotal
       });
 
       clearCart();
       setCreatedOrderId(response.data.id);
-      setSuccessMessage('Din order är mottagen och kommer att behandlas snarast möjligt.');
     } catch (err) {
       console.error('Orderfel:', err);
       setError('Kunde inte skicka ordern. Försök igen senare.');
     } finally {
+      document.getElementById('success-message').style.display = "block";
       setLoading(false);
     }
   };
@@ -78,17 +82,6 @@ const CheckoutPage = () => {
   return (
     <div className="container">
       <h1 className="page-title">Kassa</h1>
-
-      {successMessage ? (
-        <div className="card" style={{ padding: '30px' }}>
-          <div className="alert success">{successMessage}</div>
-          <p><strong>Ordernummer:</strong> {createdOrderId}</p>
-          <p>Ordern är registrerad som väntande i systemet.</p>
-          <button className="primary blue" style={{ marginTop: '20px' }} onClick={() => navigate('/orders')}>
-            Gå till mina Ordrar
-          </button>
-        </div>
-      ) : (
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 380px', gap: '30px' }}>
           <div className="card">
             <h2 style={{ marginBottom: '20px', color: 'var(--primary-blue)' }}>Leveransadress</h2>
@@ -121,8 +114,8 @@ const CheckoutPage = () => {
               <label>Postnummer</label>
               <input
                 type="text"
-                name="postalCode"
-                value={address.postalCode}
+                name="zipCode"
+                value={address.zipCode}
                 onChange={handleChange}
                 placeholder="12345"
               />
@@ -147,13 +140,8 @@ const CheckoutPage = () => {
               </select>
             </div>
 
-            <button
-              className="primary blue"
-              onClick={handleSendOrder}
-              disabled={!canSend || loading}
-              style={{ width: '100%', marginTop: '10px' }}
-            >
-              {loading ? 'Skickar order...' : 'Skicka order'}
+            <button className="primary blue" onClick={sendOrder} style={{ width: '100%', marginTop: '10px' }}>
+              Skicka order
             </button>
           </div>
 
@@ -168,20 +156,25 @@ const CheckoutPage = () => {
               </p>
             </div>
             <div className="alert info">
-              Frakt är {shippingCost === 0 ? 'gratis' : '59 kr'} för leveranser inom Sverige.
+              Frakt är 59 kr för leveranser inom Sverige.
               Ordrar över 400 kr är fraktfria.
             </div>
             <div style={{ marginTop: '20px' }}>
               <h3>Produkter i varukorg</h3>
-              <ul style={{ listStyle: 'disc', paddingLeft: '20px' }}>
+              <ul style={{ listStyle: 'none', paddingLeft: '0px', paddingTop: '10px' }}>
                 {cartItems.map(item => (
-                  <li key={item.id}>{item.artist} - {item.title}  {item.quantity} st</li>
+                  <li key={item.id} style={{ paddingBottom: '8px' }}> {item.quantity} st - {item.artist} - {item.title} </li>
                 ))}
               </ul>
             </div>
           </div>
+
+          <div id="success-message">
+            <p><strong>Ordernummer:</strong> {createdOrderId}</p>
+            <p>Vi har mottagit din order och kommer att behandla den snarast möjligt.</p>
+          </div>
         </div>
-      )}
+
     </div>
   );
 };

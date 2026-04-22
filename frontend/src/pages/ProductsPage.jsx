@@ -35,15 +35,16 @@ const ProductsPage = () => {
   };
 
   const handleDeleteProduct = async (productId) => {
-    if (window.confirm('Är du säker?')) {
+    if (window.confirm('Är du säker på att du vill ta bort den här produkten?')) {
       try {
         await apiService.deleteProduct(productId);
         fetchData();
-      } catch (err) {
-        alert('Kunde inte ta bort produkt');
+      } 
+      catch (err) {
       }
     }
   };
+
 
   return (
     <div className="container">

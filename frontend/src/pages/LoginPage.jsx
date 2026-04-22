@@ -59,7 +59,7 @@ const LoginPage = () => {
       </form>
 
       <div className="auth-link">
-        Har du inget konto? <a onClick={() => navigate('/register')}>Registrera dig här</a>
+        Har du inget konto? <a onClick={() => navigate('/registerUser')}>Registrera dig här</a>
       </div>
     </div>
   );

@@ -8,6 +8,7 @@
     "price": 299,
     "image": "./src/images/beatles-abbey-road-LP.jpg",
     "description": "Klassisk album från 1969",
+    "releaseYear": 1969,
     "stock": 10
   },
   {
@@ -19,7 +20,8 @@
     "price": 349,
     "image": "./src/images/pink-floyd-dark-side-of-the-moon-LP.jpg",
     "description": "Ikoniskt album från 1973",
-    "stock": 10
+    "releaseYear": 1973,
+    "stock": 12
   },
   {
     "id": "9a51d483-24eb-4aaa-92a4-c658e0b79c0e",
@@ -30,7 +32,8 @@
     "price": 419,
     "image": "./src/images/queen-bohemian-rhapsody-LP.jpg",
     "description": "Bohemian Rhapsody (The Original Soundtrack), av Queen, utgivet år  2018.",
-    "stock": 20
+    "releaseYear": 2018,
+    "stock": 15
   },
   {
     "id": "b61351bf-3b14-4f11-9ecc-75109fd31d45",
@@ -39,8 +42,9 @@
     "category": "Begagnade skivor",
     "subcategory": "Singlar",
     "price": 79,
-    "image": "https://via.placeholder.com/200x200?text=Space+Oddity",
+    "image": "./src/images/David Bowie - Space Oddity.jpg",
     "description": "Begagnad singel från 1969",
+    "releaseYear": 1969,
     "stock": 5
   },
   {
@@ -62,6 +66,7 @@
     "subcategory": "LP-skivor",
     "price": 300,
     "description": "AC/DC:s sista skiva med Bon Scott som sångare. Utgiven 1979.",
+    "releaseYear": 1979,
     "stock": 5,
     "image": "./src/images/ac-dc - highway to hell.jpg"
   },
@@ -73,6 +78,7 @@
     "subcategory": "LP-skivor",
     "price": 280,
     "description": "Nazareths Loud'N'Proud är första gången utgiven år 1973.",
+    "releaseYear": 1973,
     "stock": 5,
     "image": "./src/images/nazareth-loud-n-proud.jpg"
   },
@@ -84,6 +90,7 @@
     "subcategory": "LP-skivor",
     "price": 200,
     "description": "Nazareths Razamanaz är deras tredje skiva utgiven 1973.",
+    "releaseYear": 1973,
     "stock": 2,
     "image": "./src/images/nazareth-razamanaz.jpg"
   },
@@ -95,6 +102,7 @@
     "subcategory": "LP-skivor",
     "price": 300,
     "description": "Hair of the dog är Nazareths sjätte studioalbum, utgiven 1975. Innehåller deras största hit Love hurts.",
+    "releaseYear": 1975,
     "stock": 5,
     "image": "./src/images/nazareth-hair of the dog.jpg"
   },
@@ -106,6 +114,7 @@
     "subcategory": "LP-skivor",
     "price": 200,
     "description": "Exercises är Nazareths andra studioalbum utgivet 1972.",
+    "releaseYear": 1972,
     "stock": 3,
     "image": "./src/images/nazareth-exercises.jpg"
   },
@@ -117,6 +126,7 @@
     "subcategory": "LP-skivor",
     "price": 200,
     "description": "Detta är Nazareth första studioalbum utgivet 1971",
+    "releaseYear": 1971,
     "stock": 3,
     "image": "./src/images/nazareth-nazareth.jpg"
   },
@@ -133,25 +143,39 @@
     "image": "./src/images/nazareth-2xs.jpg"
   },
   {
-    "id": "6f3e9880-1bcc-48d2-ba2b-a1e236560252",
-    "artist": "Wilmer X",
+    "id": "593d750f-0e04-47dc-83d3-912d555bd8d0",
     "title": "Teknikens under",
     "category": "Nya skivor",
     "subcategory": "LP-skivor",
     "price": 300,
-    "description": "",
-    "stock": 3,
-    "image": "./src/images/wilmer x-teknikens under.jpg"
+    "description": "Utgiven 1988",
+    "releaseYear": 1993,
+    "stock": 5,
+    "image": "./src/images/wilmer x-teknikens under.jpg",
+    "artist": "Wilmer X"
   },
   {
-    "id": "84f3632e-64e1-4354-8cdf-dd5a6793a949",
+    "id": "6ed388ca-dcce-4aba-9132-887be85ed136",
     "artist": "Wilmer X",
     "title": "Mambo feber",
     "category": "Nya skivor",
     "subcategory": "LP-skivor",
-    "price": 400,
-    "description": "Dubbel LP utgiven 1991",
-    "stock": 5,
+    "price": 450,
+    "description": "Wilmer X:s Mambo feber är ett dubbel album utgivet 1991",
+    "releaseYear": "1991",
+    "stock": 4,
     "image": "./src/images/wilmer x-mambo feber.jpg"
+  },
+  {
+    "id": "fc7b0d63-b616-4748-8e32-14d374c38591",
+    "artist": "Wilmer X",
+    "title": "Primitiv",
+    "category": "Begagnade skivor",
+    "subcategory": "LP-skivor",
+    "price": 250,
+    "description": "Primitiv är utgiven 1998.",
+    "releaseYear": "1998",
+    "stock": 5,
+    "image": "./src/images/wilmer x-primitiv.jpg"
   }
 ]

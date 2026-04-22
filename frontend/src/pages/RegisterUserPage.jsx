@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../context/AuthContext';
 
-const RegisterPage = () => {
+const RegisterUserPage = () => {
   const [fullname, setFullname] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -14,7 +14,7 @@ const RegisterPage = () => {
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
-  const { register } = useContext(AuthContext);
+  const { registerUser } = useContext(AuthContext);
 
   const handleAddressChange = (e) => {
     const { name, value } = e.target;
@@ -42,7 +42,7 @@ const RegisterPage = () => {
     setLoading(true);
 
     try {
-      await register(fullname, email, password, street, zipCode, city, country);
+      await registerUser(fullname, email, password, street, zipCode, city, country);
       navigate('/');
     } catch (err) {
       setError(err);
@@ -137,4 +137,4 @@ const RegisterPage = () => {
   );
 };
 
-export default RegisterPage;
+export default RegisterUserPage;

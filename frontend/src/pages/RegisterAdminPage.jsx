@@ -50,7 +50,7 @@ const RegisterAdminPage = () => {
       <div style={{ display: 'flex', gap: '10px', marginBottom: '30px' }}>
         <button className="secondary" onClick={() => navigate('/admin')}>Ordrar</button>
 
-        <button className="secondary" onClick={() => navigate('/admin/products')}>Produkter</button>
+        <button className="secondary" onClick={() => navigate('/products')}>Produkter</button>
        
         <button className="secondary" onClick={() => navigate('/admin/addProduct')}>Lägg till produkt</button>
       </div>
