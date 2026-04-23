@@ -370,5 +370,47 @@
     "archived": false,
     "createdAt": "2026-04-22T21:31:51.246Z",
     "updatedAt": "2026-04-22T21:40:28.658Z"
+  },
+  {
+    "id": "365a6574-6d6d-4ef5-b2cb-8bbddc712a77",
+    "userId": "646990be-7a29-45ff-ab00-9e7f738b09a9",
+    "userName": "GR",
+    "street": "Västergatan 44A lgh 1001",
+    "zipCode": "273 34",
+    "city": "Tomelilla",
+    "country": "Sverige",
+    "items": [
+      {
+        "id": "a240cc12-094f-4f45-9fc1-de40e41b6ddc",
+        "artist": "The Beatles",
+        "title": "Abbey Road",
+        "category": "Nya skivor",
+        "subcategory": "LP-skivor",
+        "price": 299,
+        "image": "./src/images/beatles-abbey-road-LP.jpg",
+        "description": "Klassisk album från 1969",
+        "releaseYear": 1969,
+        "stock": 10,
+        "quantity": 1
+      },
+      {
+        "id": "df7e1ba2-1f11-4f7a-b0b6-51daf6b7297d",
+        "artist": "Pink Floyd",
+        "title": "The dark side of the moon",
+        "category": "Nya skivor",
+        "subcategory": "LP-skivor",
+        "price": 349,
+        "image": "./src/images/pink-floyd-dark-side-of-the-moon-LP.jpg",
+        "description": "Ikoniskt album från 1973",
+        "releaseYear": 1973,
+        "stock": 12,
+        "quantity": 1
+      }
+    ],
+    "totalPrice": 648,
+    "status": "pending",
+    "archived": false,
+    "createdAt": "2026-04-23T06:57:31.483Z",
+    "updatedAt": "2026-04-23T06:57:31.483Z"
   }
 ]

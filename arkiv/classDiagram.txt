@@ -1,0 +1,240 @@
+classDiagram
+    %% Backend Models
+    class User {
+        -String id
+        -String email
+        -String password
+        -String role (admin|customer)
+        -String fullname
+        -String street
+        -String zipCode
+        -String city
+        -String country
+        -Date createdAt
+        +login()
+        +register()
+    }
+
+    class Product {
+        -String id
+        -String artist
+        -String title
+        -String category
+        -String subcategory
+        -Number price
+        -String image
+        -String description
+        -Number releaseYear
+        -Number stock
+        +getProduct()
+        +updateProduct()
+        +deleteProduct()
+    }
+
+    class Order {
+        -String id
+        -String userId
+        -OrderItem[] items
+        -Number totalPrice
+        -String status (pending|shipped|delivered)
+        -Object shippingAddress
+        -Date createdAt
+        -Date shippedAt
+        +createOrder()
+        +updateStatus()
+        +getOrderDetails()
+    }
+
+    class OrderItem {
+        -String productId
+        -Number quantity
+        -Number price
+    }
+
+    %% Frontend Contexts
+    class AuthContext {
+        -User user
+        -Boolean isAuthenticated
+        -Boolean isAdmin
+        +login(email, password)
+        +registerUser(fullname, email, password, address)
+        +registerAdmin(fullname, email, password)
+        +logout()
+    }
+
+    class CartContext {
+        -CartItem[] cartItems
+        +addToCart(product)
+        +removeFromCart(productId)
+        +updateQuantity(productId, quantity)
+        +clearCart()
+        +getTotalPrice()
+    }
+
+    class CartItem {
+        -String id
+        -Number quantity
+        -Number price
+    }
+
+    %% Frontend Components
+    class App {
+        +render()
+        +routes
+    }
+
+    class Header {
+        +navigation
+        +userMenu
+    }
+
+    class Footer {
+        +siteInfo
+    }
+
+    class ProductCard {
+        -Product product
+        +displayProduct()
+        +addToCart()
+    }
+
+    %% Frontend Pages
+    class HomePage {
+        +displayFeaturedProducts()
+    }
+
+    class ShopPage {
+        +filterByCategory()
+        +filterBySubcategory()
+        +displayProducts()
+    }
+
+    class ProductsPage {
+        +adminViewAllProducts()
+    }
+
+    class LoginPage {
+        -String email
+        -String password
+        +submitLogin()
+    }
+
+    class RegisterUserPage {
+        -String[] formData
+        +submitRegistration()
+    }
+
+    class RegisterAdminPage {
+        -String[] formData
+        +submitAdminRegistration()
+    }
+
+    class CartPage {
+        +displayCart()
+        +updateQuantities()
+        +removeItems()
+        +proceedToCheckout()
+    }
+
+    class CheckoutPage {
+        +displayOrderSummary()
+        +submitOrder()
+    }
+
+    class CustomerOrdersPage {
+        +displayUserOrders()
+        +viewOrderDetails()
+    }
+
+    class OrderDetailPage {
+        -String orderId
+        +displayOrderInfo()
+    }
+
+    class AdminPage {
+        +manageOrders()
+        +viewProductInventory()
+        +registerNewAdmin()
+    }
+
+    class EditProductPage {
+        -Product product
+        +updateProductInfo()
+        +updateStock()
+    }
+
+    class AddProductPage {
+        +createNewProduct()
+    }
+
+    %% Services
+    class ApiService {
+        +getProducts(category, subcategory)
+        +getProduct(id)
+        +createProduct(data)
+        +updateProduct(id, data)
+        +deleteProduct(id)
+        +createOrder(data)
+        +getOrders(userId, status)
+        +getOrder(id)
+        +updateOrder(id, data)
+        +deleteOrder(id)
+    }
+
+    %% Relationships
+    User "1" -- "*" Order : places
+    Product "1" -- "*" OrderItem : contains
+    Order "1" -- "*" OrderItem : has
+    
+    AuthContext -- User : manages
+    CartContext -- CartItem : manages
+    CartItem -- Product : references
+    
+    App -- AuthContext : provides
+    App -- CartContext : provides
+    App -- Header : contains
+    App -- Footer : contains
+    App -- HomePage : routes
+    App -- ShopPage : routes
+    App -- LoginPage : routes
+    App -- RegisterUserPage : routes
+    App -- RegisterAdminPage : routes
+    App -- CartPage : routes
+    App -- CheckoutPage : routes
+    App -- CustomerOrdersPage : routes
+    App -- OrderDetailPage : routes
+    App -- AdminPage : routes
+    App -- ProductsPage : routes
+    App -- EditProductPage : routes
+    App -- AddProductPage : routes
+    
+    ShopPage -- ProductCard : displays
+    HomePage -- ProductCard : displays
+    ProductsPage -- ProductCard : displays
+    
+    CartPage -- CartContext : uses
+    CheckoutPage -- CartContext : uses
+    CheckoutPage -- AuthContext : uses
+    
+    LoginPage -- AuthContext : uses
+    RegisterUserPage -- AuthContext : uses
+    RegisterAdminPage -- AuthContext : uses
+    
+    CustomerOrdersPage -- AuthContext : uses
+    
+    AdminPage -- AuthContext : uses
+    
+    ApiService -- Product : manages
+    ApiService -- Order : manages
+    ApiService -- User : manages
+    
+    CartPage -- ApiService : calls
+    CheckoutPage -- ApiService : calls
+    ShopPage -- ApiService : calls
+    HomePage -- ApiService : calls
+    ProductsPage -- ApiService : calls
+    EditProductPage -- ApiService : calls
+    AddProductPage -- ApiService : calls
+    CustomerOrdersPage -- ApiService : calls
+    OrderDetailPage -- ApiService : calls
+    AdminPage -- ApiService : calls

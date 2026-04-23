@@ -6,20 +6,21 @@ En fullstack webshop för att sälja skivor, byggd med React och Vite för front
 
 ### Kund-funktioner
 - Registrera konto med epostadress
-- Logga in
 - Bläddra skivor efter kategorier (Nya/Begagnade, LP/Maxi-singlar/Singlar)
 - Lägg till produkter i varukorg
+- Logga in
 - Genomför köp
-- Se pågående och tidigare ordrar
-- Spåra orderstatus
+- Se pågående och skickade ordrar
+- Se orderstatus
 
 ### Admin-funktioner
 - Logga in som admin
+- Registrera konto med  epostadress för admin användare
 - Hantera inkomna ordrar
 - Markera ordrar som skickade
-- Redigera eller ta bort ordrar
+- Ta bort ordrar
 - Lägg till nya skivor
-- Redigera befintliga skivor
+- Redigera befintliga skivor tex ändra lagerstatus
 - Ta bort skivor
 - Hantera lagerstatus
 
@@ -27,7 +28,7 @@ En fullstack webshop för att sälja skivor, byggd med React och Vite för front
 - Lösenordskryptering med bcryptjs
 - Rollbaserad åtkomstkontroll (kund/admin)
 - Administratörer kan bara läggas till av andra administratörer
-- Initial admin: goran.rosenberg@tomelilla.nu / hnq55566#LP
+- Initial adminanvändare: epost: goran.rosenberg@tomelilla.nu, Lösenord: hnq55566#LP
 
 ## Teknikstack
 
@@ -68,8 +69,8 @@ Frontend körs på http://localhost:3000
 
 ### Authentication
 - `POST /api/auth/login` - Logga in
-- `POST /api/auth/register` - Registrera konto
-- `POST /api/admin/users` - Skapa admin (endast admin)
+- `POST /api/auth/registerUser` - Registrera konto
+- `POST /api/auth/registerAdmin` - Skapa adminanvändare (endast admin)
 
 ### Products
 - `GET /api/products` - Hämta alla produkter
@@ -88,7 +89,6 @@ Frontend körs på http://localhost:3000
 
 ## Projektstuktur
 
-```
 lexirecords-app/
 ├── backend/
 │   ├── db/
@@ -110,12 +110,15 @@ lexirecords-app/
     │   │   ├── HomePage.jsx
     │   │   ├── ShopPage.jsx
     │   │   ├── LoginPage.jsx
-    │   │   ├── RegisterPage.jsx
+    │   │   ├── RegisterUserPage.jsx
     │   │   ├── CartPage.jsx
     │   │   ├── OrderDetailPage.jsx
     │   │   ├── CustomerOrdersPage.jsx
     │   │   ├── AdminPage.jsx
-    │   │   └── EditProductPage.jsx
+    │   │   ├── ProductsPage.jsx
+    │   │   ├── AddProductPage.jsx
+    │   │   |── EditProductPage.jsx
+    │   │   └── RegisterAdminPage.jsx
     │   ├── services/
     │   │   └── api.js
     │   ├── App.jsx
@@ -130,7 +133,6 @@ lexirecords-app/
 
 - **Färgschema**: Blå huvudfärg (#003366) med gradient övertoningar
 - **Responsiv design**: Anpassas till mobil, surfplatta och desktop
-- **Användargränssnitt**: Renare och intuitiv navigation
 - **Lagring**: Shoppingkorg sparas lokalt i browser
 
 ## Testa applikationen
