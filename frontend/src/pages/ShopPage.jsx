@@ -57,7 +57,7 @@ const ShopPage = () => {
                   {categories[category].map(sub => (
                     <div
                       key={sub}
-                      className={`   ${selectedSubcategory === sub ? 'active' : ''}`}
+                      className={`sidebar-item ${selectedSubcategory === sub ? 'active' : ''}`}
                       onClick={() => setSelectedSubcategory(sub)}
                       style={{ fontSize: '12px', paddingLeft: '15px', maxWidth: '290px' }}
                     >
