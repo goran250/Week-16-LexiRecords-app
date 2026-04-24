@@ -15,7 +15,6 @@ const Header = () => {
   };
 
   const closeCustomPopup = () => { document.getElementById("custom-popup").style.display = "none"};
- 
 
   return (
     <header className="header">
@@ -46,7 +45,7 @@ const Header = () => {
               </>
             )}
           </nav>
-        
+
           <div className="nav-right">
             <div className="cart-icon" onClick={() => navigate('/cart')}>
               🛒

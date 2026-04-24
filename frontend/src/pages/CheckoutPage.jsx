@@ -16,7 +16,7 @@ const CheckoutPage = () => {
     city: user.city,
     country: 'Sverige'
   });
-  
+
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [createdOrderId, setCreatedOrderId] = useState('');
@@ -34,7 +34,7 @@ const CheckoutPage = () => {
 
     if (cartItems.length === 0 && createdOrderId == '') {
       navigate('/shop');
-    } 
+    }
   }, [user, cartItems, navigate]);
 
   const handleChange = (e) => {
@@ -46,6 +46,11 @@ const CheckoutPage = () => {
     const { name, value } = e.target;
     setAddress(prev => ({ ...prev, [name]: value }));
   };
+
+  const showError = () => {
+    window.scrollTo(0, 100);
+    return (<div className="alert error">{error}</div>)
+  }
 
   const sendOrder = async () => {
     if (!canSend) {
@@ -74,6 +79,7 @@ const CheckoutPage = () => {
       console.error('Orderfel:', err);
       setError('Kunde inte skicka ordern. Försök igen senare.');
     } finally {
+      window.scrollTo(0, document.body.scrollHeight);
       document.getElementById('success-message').style.display = "block";
       setLoading(false);
     }
@@ -82,11 +88,11 @@ const CheckoutPage = () => {
   return (
     <div className="container">
       <h1 className="page-title">Kassa</h1>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 380px', gap: '30px' }}>
+        <div className="cardColumn">
           <div className="card">
             <h2 style={{ marginBottom: '20px', color: 'var(--primary-blue)' }}>Leveransadress</h2>
 
-            {error && <div className="alert error">{error}</div>}
+            {error && showError()}
 
             <div className="form-group">
               <label>Fullständigt namn</label>

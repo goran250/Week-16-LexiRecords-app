@@ -24,11 +24,11 @@ const ShopPage = () => {
       const response = await apiService.getProducts(selectedCategory, selectedSubcategory);
       setProducts(response.data);
       setError('');
-    } 
+    }
     catch (err) {
       setError('Kunde inte hämta produkter');
       console.error(err);
-    } 
+    }
     finally {
       setLoading(false);
     }
@@ -38,7 +38,7 @@ const ShopPage = () => {
     <div className="container">
       <h1 className="page-title">Skivhandeln</h1>
 
-      <div style={{ display: 'grid', gridTemplateColumns: '250px 1fr', gap: '30px' }}>
+      <div className="cardColumnProducts">
         {/* Sidebar */}
         <aside className="sidebar">
           <div className="sidebar-title">Kategorier</div>

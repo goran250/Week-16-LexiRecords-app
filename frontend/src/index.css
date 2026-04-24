@@ -35,8 +35,8 @@ a {
   display: none;
 }
 
-.displayBlock { 
-  display: block; 
+.displayBlock {
+  display: block;
 }
 
 button {
@@ -109,7 +109,7 @@ button.grey-disabled:hover {
 #success-message {
   display: none;
   background-color: #21a53f;
-  color: white; 
+  color: white;
   border-radius: 8px;
   padding: 8px 4px;
   margin-top: 20px;
@@ -121,8 +121,8 @@ button.grey-disabled:hover {
   position: fixed;
   top: 50%;
   left: 50%;
-  width: 300px;  
-  height: auto;   
+  width: 300px;
+  height: auto;
   margin-left: -150px;   /* negative half of width above */
   margin-top: -150px;   /* negative half of height above */
   padding: 20px;
@@ -349,10 +349,22 @@ form h3.h3-tag {
 
 .card .order-info {
   display: grid;
-  grid-template-columns: 1fr 1fr; 
-  gap: 20px; 
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
   margin-bottom: 30px;
 
+}
+
+.cardColumn {
+   display: grid;
+   grid-template-columns: 1fr 380px;
+   gap: 30px;
+}
+
+.cardColumnProducts {
+   display: grid;
+   grid-template-columns: 250px 1fr;
+   gap: 30px;
 }
 
 /* Product card */
@@ -442,6 +454,7 @@ form h3.h3-tag {
   border-radius: 8px;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
   height: fit-content;
+  margin-bottom: 20px;
 }
 
 .sidebar-title {
@@ -586,11 +599,13 @@ tr:hover {
     justify-content: center;
   }
 
+  /**
   .grid-2,
   .grid-3,
   .grid-4 {
     grid-template-columns: 1fr;
   }
+   */
 
   .auth-container {
     margin: 20px;
@@ -602,7 +617,7 @@ tr:hover {
     padding-left: 0;
   }
 
-  .card .order-info {
+  .card .order-info, .<cardColumn {
     display: block;
   }
 }
@@ -611,13 +626,17 @@ tr:hover {
   .nav-box {
       display: block;
   }
-  
+
   .nav-center {
       margin-bottom: 20px;
   }
 
   .nav-right {
     gap: 15px;
+  }
+
+  .cardColumnProducts {
+    display: block;
   }
 }
 

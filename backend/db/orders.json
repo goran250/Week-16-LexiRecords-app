@@ -412,5 +412,131 @@
     "archived": false,
     "createdAt": "2026-04-23T06:57:31.483Z",
     "updatedAt": "2026-04-23T06:57:31.483Z"
+  },
+  {
+    "id": "b0648caf-afc2-41b1-944b-fa69bddc7a04",
+    "userId": "ae564e5d-d25d-489f-b287-dc21ae7756cc",
+    "userName": "Göran Rosenberg",
+    "street": "Västergatan 44A lgh 1001",
+    "zipCode": "273 34",
+    "city": "Tomelilla",
+    "country": "Sverige",
+    "items": [
+      {
+        "id": "a240cc12-094f-4f45-9fc1-de40e41b6ddc",
+        "artist": "The Beatles",
+        "title": "Abbey Road",
+        "category": "Nya skivor",
+        "subcategory": "LP-skivor",
+        "price": 299,
+        "image": "./src/images/beatles-abbey-road-LP.jpg",
+        "description": "Klassisk album från 1969",
+        "releaseYear": 1969,
+        "stock": 10,
+        "quantity": 1
+      },
+      {
+        "id": "678936ed-67ef-45ee-9a64-89c64f65b20d",
+        "artist": "Nazareth",
+        "title": "2XS",
+        "category": "Nya skivor",
+        "subcategory": "LP-skivor",
+        "price": 300,
+        "description": "2XS är Nazareths trettonde studioalbum utgivet 1982. Innehåller hiten Dream on.",
+        "releaseYear": 1982,
+        "stock": 5,
+        "image": "./src/images/nazareth-2xs.jpg",
+        "quantity": 1
+      }
+    ],
+    "totalPrice": 599,
+    "status": "pending",
+    "archived": false,
+    "createdAt": "2026-04-24T07:18:29.549Z",
+    "updatedAt": "2026-04-24T07:18:29.549Z"
+  },
+  {
+    "id": "f434742d-3646-4a39-8d66-83be0f7b1847",
+    "userId": "ae564e5d-d25d-489f-b287-dc21ae7756cc",
+    "userName": "Göran Rosenberg",
+    "street": "Västergatan 44A lgh 1001",
+    "zipCode": "273 34",
+    "city": "Tomelilla",
+    "country": "Sverige",
+    "items": [
+      {
+        "id": "9a51d483-24eb-4aaa-92a4-c658e0b79c0e",
+        "artist": "Queen",
+        "title": "Bohemian Rhapsody",
+        "category": "Nya skivor",
+        "subcategory": "LP-skivor",
+        "price": 419,
+        "image": "./src/images/queen-bohemian-rhapsody-LP.jpg",
+        "description": "Bohemian Rhapsody (The Original Soundtrack), av Queen, utgivet år  2018.",
+        "releaseYear": 2018,
+        "stock": 15,
+        "quantity": 1
+      },
+      {
+        "id": "9fa9d48b-6456-48a2-848f-f393be1eb4cd",
+        "artist": "Nazareth",
+        "title": "Loud'N'Proud",
+        "category": "Nya skivor",
+        "subcategory": "LP-skivor",
+        "price": 280,
+        "description": "Nazareths Loud'N'Proud är första gången utgiven år 1973.",
+        "releaseYear": 1973,
+        "stock": 5,
+        "image": "./src/images/nazareth-loud-n-proud.jpg",
+        "quantity": 1
+      }
+    ],
+    "totalPrice": 699,
+    "status": "pending",
+    "archived": false,
+    "createdAt": "2026-04-24T07:36:24.723Z",
+    "updatedAt": "2026-04-24T07:36:24.723Z"
+  },
+  {
+    "id": "05e4bc81-28fe-4601-b3c9-84e6b13eb12b",
+    "userId": "ae564e5d-d25d-489f-b287-dc21ae7756cc",
+    "userName": "Göran Rosenberg",
+    "street": "Västergatan 44A, 1001",
+    "zipCode": "27334",
+    "city": "Tomelilla",
+    "country": "Sverige",
+    "items": [
+      {
+        "id": "df7e1ba2-1f11-4f7a-b0b6-51daf6b7297d",
+        "artist": "Pink Floyd",
+        "title": "The dark side of the moon",
+        "category": "Nya skivor",
+        "subcategory": "LP-skivor",
+        "price": 349,
+        "image": "./src/images/pink-floyd-dark-side-of-the-moon-LP.jpg",
+        "description": "Ikoniskt album från 1973",
+        "releaseYear": 1973,
+        "stock": 12,
+        "quantity": 1
+      },
+      {
+        "id": "3dd436c4-ac96-4f8a-896a-f38caed0677a",
+        "artist": "AC/DC",
+        "title": "Highway to hell",
+        "category": "Nya skivor",
+        "subcategory": "LP-skivor",
+        "price": 300,
+        "description": "AC/DC:s sista skiva med Bon Scott som sångare. Utgiven 1979.",
+        "releaseYear": 1979,
+        "stock": 5,
+        "image": "./src/images/ac-dc - highway to hell.jpg",
+        "quantity": 1
+      }
+    ],
+    "totalPrice": 649,
+    "status": "pending",
+    "archived": false,
+    "createdAt": "2026-04-24T07:47:26.177Z",
+    "updatedAt": "2026-04-24T07:47:26.177Z"
   }
 ]

@@ -15,7 +15,7 @@ const ProductsPage = () => {
     if (!isAdmin) {
       navigate('/');
       return;
-    } 
+    }
     fetchData();
   }, []);
 
@@ -24,11 +24,11 @@ const ProductsPage = () => {
       setLoading(true);
       const response = await apiService.getProducts();
       setProducts(response.data);
-    } 
+    }
     catch (err) {
       setError('Kunde inte hämta data');
       console.error(err);
-    } 
+    }
     finally {
       setLoading(false);
     }
@@ -39,7 +39,7 @@ const ProductsPage = () => {
       try {
         await apiService.deleteProduct(productId);
         fetchData();
-      } 
+      }
       catch (err) {
       }
     }
@@ -51,7 +51,7 @@ const ProductsPage = () => {
 
       <div style={{ display: 'flex', gap: '10px', marginBottom: '30px' }}>
         <button className="secondary" onClick={() => navigate('/admin')}>Ordrar</button>
-        <button className="secondary" onClick={() => navigate('/admin/addProduct')}>Lägg till produkt</button>       
+        <button className="secondary" onClick={() => navigate('/admin/addProduct')}>Lägg till produkt</button>
         <button className="secondary" onClick={() => navigate('/admin/registerAdmin')}>Registrera admin</button>
       </div>
 
@@ -59,17 +59,17 @@ const ProductsPage = () => {
 
       <h2 style={{ marginBottom: '20px' }}>Produkter</h2>
 
-      <div>          
+      <div>
           <div className="grid grid-4">
             {products.map(product => (
-              <ProductCard 
-                key={product.id} 
-                product={product} 
+              <ProductCard
+                key={product.id}
+                product={product}
                 onDelete={handleDeleteProduct}
                 isAdmin={true}
               />
             ))}
-          </div>          
+          </div>
       </div>
     </div>
   );
