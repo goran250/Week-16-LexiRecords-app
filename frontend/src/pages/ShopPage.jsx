@@ -59,7 +59,7 @@ const ShopPage = () => {
                       key={sub}
                       className={`sidebar-item ${selectedSubcategory === sub ? 'active' : ''}`}
                       onClick={() => setSelectedSubcategory(sub)}
-                      style={{ fontSize: '12px', paddingLeft: '15px' }}
+                      style={{ fontSize: '12px', paddingLeft: '15px', maxWidth: '290px' }}
                     >
                       {sub}
                     </div>
