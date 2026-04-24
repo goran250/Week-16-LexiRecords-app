@@ -26,12 +26,24 @@ const AdminPage = () => {
       if (activeTab === 'orders') {
         const response = await apiService.getOrders(null, orderStatus);
         setOrders(response.data);
-      } 
+      }
     } catch (err) {
       setError('Kunde inte hämta data');
       console.error(err);
     } finally {
       setLoading(false);
+    }
+  };
+
+
+  const handleDeleteOrder = async (orderId) => {
+    if (window.confirm('Är du säker på att du vill ta bort den här ordern?')) {
+      try {
+        await apiService.deleteOrder(orderId);
+        fetchData();
+      } catch (err) {
+        alert('Kunde inte ta bort order');
+      }
     }
   };
 

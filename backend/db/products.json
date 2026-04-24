@@ -167,15 +167,15 @@
     "image": "./src/images/wilmer x-mambo feber.jpg"
   },
   {
-    "id": "fc7b0d63-b616-4748-8e32-14d374c38591",
+    "id": "ccde7b00-5cd0-4a82-b1a4-1e091bc36bcb",
     "artist": "Wilmer X",
     "title": "Primitiv",
-    "category": "Begagnade skivor",
+    "category": "Nya skivor",
     "subcategory": "LP-skivor",
-    "price": 250,
+    "price": 300,
     "description": "Primitiv är utgiven 1998.",
-    "releaseYear": "1998",
-    "stock": 5,
+    "releaseYear": 1998,
+    "stock": 10,
     "image": "./src/images/wilmer x-primitiv.jpg"
   }
 ]
