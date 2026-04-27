@@ -18,9 +18,12 @@ const ShopPage = () => {
     fetchProducts();
   }, [selectedCategory, selectedSubcategory]);
 
+
   const fetchProducts = async () => {
     try {
+      
       setLoading(true);
+     
       const response = await apiService.getProducts(selectedCategory, selectedSubcategory);
       setProducts(response.data);
       setError('');
@@ -35,7 +38,7 @@ const ShopPage = () => {
   };
 
   return (
-    <div className="container">
+    <div className="container" >
       <h1 className="page-title">Skivhandeln</h1>
 
       <div className="cardColumnProducts">
