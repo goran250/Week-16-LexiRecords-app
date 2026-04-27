@@ -534,9 +534,51 @@
       }
     ],
     "totalPrice": 649,
-    "status": "pending",
+    "status": "shipped",
     "archived": false,
     "createdAt": "2026-04-24T07:47:26.177Z",
-    "updatedAt": "2026-04-24T07:47:26.177Z"
+    "updatedAt": "2026-04-24T14:28:15.562Z"
+  },
+  {
+    "id": "5911678d-f406-4e82-b25e-47c646430665",
+    "userId": "646990be-7a29-45ff-ab00-9e7f738b09a9",
+    "userName": "GR",
+    "street": "Västergatan 44A lgh 1001",
+    "zipCode": "273 34",
+    "city": "Tomelilla",
+    "country": "Sverige",
+    "items": [
+      {
+        "id": "3dd436c4-ac96-4f8a-896a-f38caed0677a",
+        "artist": "AC/DC",
+        "title": "Highway to hell",
+        "category": "Nya skivor",
+        "subcategory": "LP-skivor",
+        "price": 300,
+        "description": "AC/DC:s sista skiva med Bon Scott som sångare. Utgiven 1979.",
+        "releaseYear": 1979,
+        "stock": 5,
+        "image": "./src/images/ac-dc - highway to hell.jpg",
+        "quantity": 1
+      },
+      {
+        "id": "a240cc12-094f-4f45-9fc1-de40e41b6ddc",
+        "artist": "The Beatles",
+        "title": "Abbey Road",
+        "category": "Nya skivor",
+        "subcategory": "LP-skivor",
+        "price": 299,
+        "image": "./src/images/beatles-abbey-road-LP.jpg",
+        "description": "Klassisk album från 1969",
+        "releaseYear": 1969,
+        "stock": 10,
+        "quantity": 1
+      }
+    ],
+    "totalPrice": 599,
+    "status": "pending",
+    "archived": false,
+    "createdAt": "2026-04-24T14:26:47.654Z",
+    "updatedAt": "2026-04-24T14:26:47.654Z"
   }
 ]
